@@ -353,6 +353,29 @@
     .team-share-output label { grid-column: 1/-1; color: #7c879b; font-size: 9px; font-weight: 800; }
     .team-share-output input { min-width: 0; padding: 8px; border: 1px solid var(--line); border-radius: 8px; color: #536078; font-size: 9px; }
     .team-share-output button { border: 1px solid var(--line); border-radius: 8px; background: #fff; color: #526078; padding: 0 10px; font-size: 9px; font-weight: 800; }
+    .personality-panel { margin-top: 18px; padding: 20px; background: #fff; border: 1px solid var(--line); border-radius: 17px; box-shadow: 0 6px 24px rgba(31,48,83,.035); }
+    .personality-panel[hidden], .personality-result[hidden], .personality-question[hidden] { display: none; }
+    .personality-top { display: flex; justify-content: space-between; align-items: center; gap: 10px; margin: 10px 0; }
+    .personality-count { color: #68758d; font-size: 10px; font-weight: 800; }
+    .personality-question { margin-top: 12px; padding: 15px; border: 1px solid #e9edf3; border-radius: 12px; background: linear-gradient(135deg,#fbfcff,#f6f7fb); }
+    .personality-question h3 { margin: 0 0 12px; color: #3e4a61; font-size: 14px; line-height: 1.5; }
+    .personality-options { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 8px; }
+    .personality-option { min-height: 48px; padding: 10px 12px; border: 1px solid #e5e9f1; border-radius: 9px; background: #fff; color: #59667d; font-size: 10px; line-height: 1.45; text-align: left; cursor: pointer; }
+    .personality-option:hover { border-color: #cdd5fa; background: #f8f9ff; }
+    .personality-option.selected { border-color: #9baaf2; background: #f0f2ff; color: #4059c1; box-shadow: 0 0 0 2px rgba(82,111,231,.08); }
+    .personality-nav { display: flex; justify-content: space-between; gap: 8px; margin-top: 12px; }
+    .personality-nav button, .personality-start, .personality-restart, .personality-open { padding: 9px 12px; border: 1px solid #526fe7; border-radius: 9px; background: #526fe7; color: #fff; font-size: 10px; font-weight: 850; }
+    .personality-nav button.secondary { border-color: var(--line); background: #fff; color: #536078; }
+    .personality-nav button:disabled { opacity: .5; cursor: not-allowed; }
+    .personality-result { margin-top: 12px; padding: 14px; border: 1px solid #e9edf3; border-radius: 12px; background: linear-gradient(135deg,#f7f8ff,#fff); }
+    .personality-result-card { display: grid; grid-template-columns: 150px minmax(0,1fr); align-items: center; gap: 13px; }
+    .personality-result-art { width: 150px; height: 150px; object-fit: contain; }
+    .personality-result-kicker { color: #8792a5; font-size: 9px; font-weight: 850; letter-spacing: .08em; text-transform: uppercase; }
+    .personality-result-name { margin: 4px 0; color: #3c4964; font-size: 22px; font-weight: 900; }
+    .personality-result-copy { margin: 5px 0 9px; color: #69758b; font-size: 10px; line-height: 1.6; }
+    .personality-result-types { display: flex; flex-wrap: wrap; gap: 5px; }
+    .personality-result-actions { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 10px; }
+    .personality-result-foot { margin: 10px 0 0; color: #929bad; font-size: 9px; line-height: 1.5; }
     .type-chart { border-collapse: separate; border-spacing: 3px; min-width: 940px; font-size: 9px; text-align: center; }
     .type-chart th { position: sticky; top: 0; z-index: 2; background: #fff; color: #657188; font-weight: 800; padding: 5px 4px; min-width: 38px; }
     .type-chart th:first-child { left: 0; z-index: 4; min-width: 104px; text-align: left; }
@@ -371,7 +394,7 @@
     @media (max-width: 900px) { .grid { grid-template-columns: repeat(3,minmax(0,1fr)); } .filter-grid,.advanced { grid-template-columns: repeat(2,minmax(0,1fr)); }.team-slots { grid-template-columns: repeat(3,minmax(0,1fr)); }.assistant-grid { grid-template-columns: 1fr 1fr; }.reveal-grid { grid-template-columns: 1fr; } }
     @media (max-width: 620px) { .shell { width: min(100% - 24px, 500px); }.topbar { height: 66px; }.top-meta .tag { display:none; }.chart-trigger { font-size:10px; padding:7px 9px; }.region-chip { padding:7px 9px; font-size:10px; }main { padding-top: 10px; }.hero { padding: 26px 20px 23px; border-radius: 18px; }.hero-bottom { align-items: stretch; }.search-wrap { width: 100%; }.hero-btn { flex: 1; }.hero-stats { gap: 14px; flex-wrap: wrap; }.reveal-panel { padding: 14px; }.reveal-head { flex-direction: column; }.reveal-source { align-self: flex-start; }.reveal-card { grid-template-columns: minmax(0,1fr) 76px; padding: 11px; }.reveal-art { width: 76px; height: 76px; }.filters { padding: 16px; }.filter-grid,.advanced { grid-template-columns: 1fr 1fr; gap: 10px; }.grid { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 10px; }.pokemon-card { height: 202px; }.card-image { width: 112px; height: 112px; right: 6px; bottom: 17px; }.card-info { left: 12px; right: 57px; bottom: 15px; }.pokemon-name { font-size: 14px; }.type-pill { padding: 4px 6px; font-size: 8px; }.card-top { padding: 12px 11px 0; }.results-bar { align-items: flex-start; }.results-title { font-size: 14px; }.sort-wrap { padding-top: 2px; }.team-panel { padding: 14px; }.team-head { align-items: flex-start; flex-direction: column; }.team-actions { width: 100%; justify-content: space-between; }.team-slots { grid-template-columns: repeat(2,minmax(0,1fr)); }.team-slot { min-height: 65px; }.team-slot-art { width: 42px; height: 42px; }.assistant-grid { grid-template-columns: 1fr; }.move-list { grid-template-columns: 1fr 1fr; }.modal-backdrop { padding: 10px; }.modal { max-height: 95vh; border-radius: 17px; }.modal-hero { min-height: 210px; padding: 23px 18px; }.modal-hero::after { width: 205px; height: 205px; right: 6px; top: 8px; }.modal-title-block { max-width: 62%; padding-top: 17px; }.modal-art { width: 47%; height: 205px; right: 2px; }.modal-body { padding: 17px 18px 23px; }.detail-metrics { grid-template-columns: repeat(2,1fr); }.evo-item { grid-template-columns: 1fr auto 1fr; gap: 5px; padding: 8px; }.evo-condition { font-size: 9px; }.alternate-forms { grid-template-columns: 1fr; }.chart-backdrop { padding: 8px; }.chart-modal { max-height: 96vh; border-radius: 14px; }.chart-head { padding: 17px 16px 12px; }.chart-head h2 { font-size: 17px; }.chart-legend { padding: 10px 16px 0; }.chart-scroll { max-height: 68vh; padding: 10px 8px 18px; }footer { align-items: flex-start; flex-direction: column; gap: 8px; } }
     @media (max-width: 370px) { .filter-grid,.advanced { grid-template-columns: 1fr; }.pokemon-card { height: 188px; }.card-image { width: 100px; height: 100px; }.pokemon-name { font-size: 13px; } }
-    @media (max-width: 620px) { .region-map-panel,.location-explorer-panel,.move-panel,.quiz-panel { padding: 14px; } .region-map-head { display: grid; grid-template-columns: 1fr; } .region-map-select-wrap { width: 100%; } .region-map-frame { min-height: 170px; max-height: 62vh; padding: 8px; } .region-map-image { max-height: 58vh; } .location-tools,.move-filter-grid { grid-template-columns: 1fr 1fr; } .location-list,.location-encounters { grid-template-columns: repeat(2,minmax(0,1fr)); } .move-browser-layout { grid-template-columns: 1fr; } .move-results { grid-template-columns: repeat(2,minmax(0,1fr)); max-height: 250px; } .quiz-options { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 620px) { .region-map-panel,.location-explorer-panel,.move-panel,.quiz-panel,.personality-panel { padding: 14px; } .region-map-head { display: grid; grid-template-columns: 1fr; } .region-map-select-wrap { width: 100%; } .region-map-frame { min-height: 170px; max-height: 62vh; padding: 8px; } .region-map-image { max-height: 58vh; } .location-tools,.move-filter-grid { grid-template-columns: 1fr 1fr; } .location-list,.location-encounters { grid-template-columns: repeat(2,minmax(0,1fr)); } .move-browser-layout { grid-template-columns: 1fr; } .move-results { grid-template-columns: repeat(2,minmax(0,1fr)); max-height: 250px; } .quiz-options,.personality-options { grid-template-columns: 1fr; } .personality-result-card { grid-template-columns: 95px minmax(0,1fr); gap: 8px; }.personality-result-art { width: 95px; height: 95px; }.personality-result-name { font-size: 18px; } }
     @media (max-width: 700px) { .progress-panel,.compare-panel { padding: 14px; }.tool-panel-head { flex-direction: column; }.progress-region-wrap { width: 100%; }.progress-stats { grid-template-columns: repeat(2,minmax(0,1fr)); }.compare-select-grid,.compare-summary,.compare-matchups { grid-template-columns: 1fr; } }
   </style>
 </head>
@@ -476,6 +499,19 @@
         <div class="tool-panel-head"><div><h2 class="tool-panel-title" id="quiz-title">Reto de siluetas</h2><p class="tool-panel-note">Adivina el Pokémon y aprende sus nombres mientras sumas aciertos. Cada ronda elige una especie distinta al azar.</p></div></div>
         <div class="quiz-toolbar"><span class="quiz-score" id="quiz-score">Aciertos: 0 · Ronda 0</span><div><button class="quiz-start" id="quiz-start" type="button">Empezar reto</button> <button class="quiz-next" id="quiz-next" type="button" disabled hidden>Siguiente →</button></div></div>
         <div class="quiz-card" id="quiz-card" hidden><div class="quiz-prompt" id="quiz-prompt">¿Qué Pokémon es?</div><img class="quiz-image" id="quiz-image" src="" alt="Silueta misteriosa"><div class="quiz-options" id="quiz-options"></div><div class="quiz-feedback" id="quiz-feedback" role="status"></div></div>
+      </section>
+
+      <section class="personality-panel" aria-labelledby="personality-title">
+        <div class="tool-panel-head"><div><h2 class="tool-panel-title" id="personality-title">¿Qué Pokémon eres?</h2><p class="tool-panel-note">Responde 50 preguntas sobre cómo piensas, exploras y convives. Al final recibirás un Pokémon que combina con tu perfil.</p></div><button class="personality-start" id="personality-start" type="button">Empezar quiz</button></div>
+        <div class="personality-top"><span class="personality-count" id="personality-count">50 preguntas · aún no iniciado</span><span class="personality-count" id="personality-answered">0 / 50 respondidas</span></div>
+        <div class="progress-track" aria-label="Avance del quiz de personalidad"><div class="progress-fill" id="personality-progress-fill"></div></div>
+        <section class="personality-question" id="personality-question" hidden aria-live="polite">
+          <h3 id="personality-question-text"></h3>
+          <div class="personality-options" id="personality-options"></div>
+          <div class="personality-nav"><button class="secondary" id="personality-prev" type="button" disabled>← Anterior</button><button id="personality-next" type="button" disabled>Siguiente →</button></div>
+        </section>
+        <section class="personality-result" id="personality-result" hidden aria-live="polite"></section>
+        <p class="personality-result-foot">Es un resultado recreativo basado en tus respuestas, no una clasificación oficial de Pokémon.</p>
       </section>
 
       <section class="filters" aria-label="Filtros de la Pokédex">
@@ -603,6 +639,90 @@
       const PROGRESS_PROFILES = ['all','kanto','johto','hoenn','sinnoh','unova','kalos','alola','galar','paldea'];
       const state = { species: [], filtered: [], page: 1, pageSize: PAGE_DEFAULT, type: 'all', typeIds: null, typeData: null, typePromise: null, favoritesOnly: false, favorites: new Set(), team: [], teamRuntime: [], shiny: new Set(), shinyForms: new Set(), progress: {}, progressProfile: 'all', region: 'all', sort: 'number', evoMethod: 'all', minLevel: null, maxLevel: null, evoIndex: null, evoPromise: null, loading: false };
       const explorerState = { locations: [], locationRegion: 0, locationToken: 0, locationDetailToken: 0, moveIndex: null, movePromise: null, moveFilterToken: 0, moveTimer: 0, selectedMoveUrl: '', quizCurrentId: 0, quizOptions: [], quizScore: 0, quizRound: 0, quizAnswered: false };
+      const PERSONALITY_AXES = [
+        {id:'valor',label:'Valentía',description:'Sueles actuar con iniciativa cuando aparece un reto.'},
+        {id:'cuidado',label:'Empatía y cuidado',description:'Te importa escuchar, acompañar y proteger a los demás.'},
+        {id:'curiosidad',label:'Curiosidad',description:'Aprendes explorando y haciendo preguntas.'},
+        {id:'ingenio',label:'Ingenio',description:'Te gusta pensar estrategias y resolver problemas.'},
+        {id:'serenidad',label:'Serenidad',description:'Aportas calma, paciencia y equilibrio.'},
+        {id:'libertad',label:'Independencia',description:'Valoras la autenticidad y encontrar tu propio camino.'}
+      ];
+      const personalityQuestion = (text,options) => ({text,options});
+      const PERSONALITY_QUESTIONS = [
+        personalityQuestion('Aparece un desafío inesperado en tu camino. ¿Qué haces primero?', [['Doy el primer paso y veo qué pasa','valor'],['Pregunto si alguien necesita ayuda','cuidado'],['Investigo qué está ocurriendo','curiosidad'],['Pienso un plan antes de moverme','ingenio']]),
+        personalityQuestion('En una aventura con amigos, ¿qué papel sueles tomar?', [['Animo al grupo a avanzar','valor'],['Me aseguro de que todos estén bien','cuidado'],['Me fijo en los detalles y lugares nuevos','curiosidad'],['Organizo cómo llegar a la meta','ingenio']]),
+        personalityQuestion('Tienes una tarde completamente libre. ¿Qué te apetece?', [['Probar algo emocionante','valor'],['Pasarla con alguien querido','cuidado'],['Explorar un tema o lugar nuevo','curiosidad'],['Hacer algo a mi manera y sin prisa','libertad']]),
+        personalityQuestion('Un amigo tiene un problema y no sabe qué hacer. ¿Cómo le ayudas?', [['Le acompaño a enfrentarlo','valor'],['Le escucho con paciencia','cuidado'],['Buscamos información juntos','curiosidad'],['Le ayudo a ordenar opciones','ingenio']]),
+        personalityQuestion('Llegas a una ciudad que nunca habías visitado. ¿Qué te llama más?', [['Ir directo a la aventura','valor'],['Encontrar un sitio agradable para el grupo','cuidado'],['Recorrer sus calles y descubrir rincones','curiosidad'],['Elegir una ruta eficiente para conocerla','ingenio']]),
+        personalityQuestion('El plan del día cambia a última hora. ¿Qué suele pasar contigo?', [['Me adapto y convierto el cambio en reto','valor'],['Primero reviso cómo le afecta al grupo','cuidado'],['Me da curiosidad ver qué trae el nuevo plan','curiosidad'],['Reorganizo los pasos para que funcione','ingenio']]),
+        personalityQuestion('Cuando debes tomar una decisión importante, ¿qué te guía más?', [['La oportunidad de atreverme','valor'],['El efecto que tendrá en las personas','cuidado'],['Las cosas nuevas que podría aprender','curiosidad'],['Comparar las opciones con calma','ingenio']]),
+        personalityQuestion('¿Qué te resulta más satisfactorio al terminar un proyecto?', [['Haber superado algo difícil','valor'],['Haber ayudado a alguien en el proceso','cuidado'],['Haber aprendido algo inesperado','curiosidad'],['Haber resuelto bien cada etapa','ingenio']]),
+        personalityQuestion('Si el grupo se queda sin ideas, tú probablemente…', [['Propongo empezar aunque no esté perfecto','valor'],['Pregunto qué necesita cada persona','cuidado'],['Lanzo posibilidades diferentes','curiosidad'],['Divido el problema en partes','ingenio']]),
+        personalityQuestion('¿Qué tipo de elogio te alegra más?', [['“Te atreviste cuando hacía falta”','valor'],['“Hiciste que me sintiera acompañado”','cuidado'],['“Siempre encuentras algo interesante”','curiosidad'],['“Tu solución fue muy inteligente”','ingenio']]),
+        personalityQuestion('Ves un sendero que no aparece en el mapa. ¿Qué haces?', [['Lo recorro con cuidado y decisión','valor'],['Pregunto si alguien quiere venir conmigo','cuidado'],['Quiero descubrir a dónde lleva','curiosidad'],['Busco señales y calculo si conviene','ingenio']]),
+        personalityQuestion('En una conversación difícil, ¿qué intentas hacer?', [['Decir con honestidad lo que pienso','valor'],['Escuchar cómo se siente la otra persona','cuidado'],['Entender qué provocó el desacuerdo','curiosidad'],['Encontrar una salida justa y práctica','ingenio']]),
+        personalityQuestion('¿Qué ambiente te ayuda a sentirte a gusto?', [['Uno lleno de energía y movimiento','valor'],['Uno cálido donde todos se cuidan','cuidado'],['Uno donde siempre hay algo por descubrir','curiosidad'],['Uno tranquilo donde puedo ir a mi ritmo','serenidad']]),
+        personalityQuestion('Aprendes una habilidad nueva. ¿Qué estilo prefieres?', [['Intentar desde el principio aunque cueste','valor'],['Practicar junto a alguien','cuidado'],['Probar varias formas de aprender','curiosidad'],['Avanzar paso a paso y revisar errores','ingenio']]),
+        personalityQuestion('¿Qué haces cuando cometes un error?', [['Lo reconozco y vuelvo a intentarlo','valor'],['Pienso si afectó a alguien y lo reparo','cuidado'],['Me pregunto qué puedo aprender','curiosidad'],['Analizo cómo evitarlo la próxima vez','ingenio']]),
+        personalityQuestion('¿Qué clase de compañero te gustaría ser?', [['El que ayuda al equipo a atreverse','valor'],['El que hace sentir bienvenido a todos','cuidado'],['El que siempre trae descubrimientos','curiosidad'],['El que mantiene la cabeza fría','serenidad']]),
+        personalityQuestion('Cuando conoces a alguien nuevo, ¿qué te interesa primero?', [['Qué aventuras le gustan','valor'],['Cómo se siente y qué le importa','cuidado'],['Qué historias o ideas tiene','curiosidad'],['Cómo ve el mundo y toma decisiones','ingenio']]),
+        personalityQuestion('Si pudieras elegir una excursión, ¿cuál sería?', [['Escalar una montaña desafiante','valor'],['Visitar un lugar bonito con amigos','cuidado'],['Explorar una cueva desconocida','curiosidad'],['Seguir una ruta tranquila y bien planeada','serenidad']]),
+        personalityQuestion('¿Cómo prefieres celebrar una buena noticia?', [['Con una actividad emocionante','valor'],['Compartiendo el momento con mi gente','cuidado'],['Haciendo algo distinto a lo habitual','curiosidad'],['Disfrutándola con calma','serenidad']]),
+        personalityQuestion('Al resolver un rompecabezas, ¿qué disfrutas más?', [['Probar una idea aunque sea arriesgada','valor'],['Resolverlo en equipo','cuidado'],['Buscar pistas poco evidentes','curiosidad'],['Encontrar el patrón correcto','ingenio']]),
+        personalityQuestion('Alguien del grupo se siente excluido. ¿Qué haces?', [['Le invito a participar con decisión','valor'],['Me acerco y le escucho','cuidado'],['Busco una actividad que le interese','curiosidad'],['Pienso cómo cambiar la dinámica del grupo','ingenio']]),
+        personalityQuestion('¿Qué elegirías para una tarde lluviosa?', [['Salir a caminar bajo la lluvia','valor'],['Preparar algo para compartir','cuidado'],['Leer o ver algo que no conozco','curiosidad'],['Descansar en un lugar cómodo','serenidad']]),
+        personalityQuestion('Si alguien cuestiona una idea tuya, ¿qué haces?', [['La defiendo si creo en ella','valor'],['Escucho sin olvidar el respeto','cuidado'],['Reviso si hay algo que no había visto','curiosidad'],['Comparo argumentos antes de responder','ingenio']]),
+        personalityQuestion('¿Qué te gustaría descubrir en un museo?', [['Historias de grandes hazañas','valor'],['Objetos que cuentan vidas personales','cuidado'],['Inventos y especies sorprendentes','curiosidad'],['Cómo se conectan las piezas entre sí','ingenio']]),
+        personalityQuestion('Cuando tienes una meta lejana, normalmente…', [['Empiezo con un paso valiente','valor'],['Busco compañía y apoyo mutuo','cuidado'],['Investigo muchas maneras de lograrla','curiosidad'],['La convierto en un plan por etapas','ingenio']]),
+        personalityQuestion('¿Qué prefieres en un equipo?', [['Que todos se animen a intentar','valor'],['Que las personas se cuiden entre sí','cuidado'],['Que haya ideas diferentes','curiosidad'],['Que cada quien tenga claro su papel','ingenio']]),
+        personalityQuestion('Un día sale mucho mejor de lo esperado. ¿Qué piensas?', [['“Qué bueno que me animé”','valor'],['“Qué bueno que lo compartimos”','cuidado'],['“No imaginaba que descubriría esto”','curiosidad'],['“Las decisiones funcionaron”','ingenio']]),
+        personalityQuestion('¿Qué lugar elegirías como refugio?', [['Un mirador con vista amplia','valor'],['Una casa acogedora con amigos','cuidado'],['Una biblioteca llena de mapas y relatos','curiosidad'],['Un jardín silencioso','serenidad']]),
+        personalityQuestion('Si te ofrecen una tarea que nunca has hecho…', [['La acepto y aprendo sobre la marcha','valor'],['Pregunto con quién puedo colaborar','cuidado'],['Quiero saber cómo funciona','curiosidad'],['Primero identifico los pasos y recursos','ingenio']]),
+        personalityQuestion('¿Qué situación te desespera más?', [['No poder actuar ante un reto','valor'],['Ver que alguien se siente solo','cuidado'],['No tener nada nuevo que explorar','curiosidad'],['Que todo cambie sin una razón clara','serenidad']]),
+        personalityQuestion('¿Cómo te recuperas después de un día pesado?', [['Haciendo algo activo que me despeje','valor'],['Hablando con alguien de confianza','cuidado'],['Cambiando de ambiente y descubriendo algo','curiosidad'],['Tomándome un tiempo a solas','libertad']]),
+        personalityQuestion('¿Qué te gustaría aportar a tu comunidad?', [['Inspirar a otros a actuar','valor'],['Hacer que las personas se sientan apoyadas','cuidado'],['Compartir conocimientos y preguntas','curiosidad'],['Crear soluciones que duren','ingenio']]),
+        personalityQuestion('¿Qué haces cuando un plan no funciona?', [['Busco otra oportunidad para intentarlo','valor'],['Reviso que todos estén bien primero','cuidado'],['Exploro por qué falló','curiosidad'],['Cambio la estrategia con lo aprendido','ingenio']]),
+        personalityQuestion('¿Qué te atrae de una historia?', [['Un personaje que se enfrenta a sus miedos','valor'],['Una amistad que se mantiene en momentos difíciles','cuidado'],['Un misterio que revela un mundo nuevo','curiosidad'],['Una trama con pistas bien conectadas','ingenio']]),
+        personalityQuestion('Si pudieras elegir una cualidad para fortalecer, ¿cuál sería?', [['Atreverme a dar el primer paso','valor'],['Entender mejor a los demás','cuidado'],['Hacer mejores preguntas','curiosidad'],['Resolver problemas con más claridad','ingenio']]),
+        personalityQuestion('¿Qué ritmo de vida te sienta mejor?', [['Muchos retos y movimiento','valor'],['Tiempo para mi gente y mis proyectos','cuidado'],['Variedad y descubrimientos','curiosidad'],['Pausas para pensar y descansar','serenidad']]),
+        personalityQuestion('En una discusión de grupo, ¿qué papel tomas?', [['Digo lo que hace falta decir','valor'],['Ayudo a bajar la tensión','cuidado'],['Pregunto para entender ambas posturas','curiosidad'],['Propongo un acuerdo concreto','ingenio']]),
+        personalityQuestion('¿Qué harías con un día sin horarios?', [['Improvisar una aventura','valor'],['Invitar a alguien a compartirlo','cuidado'],['Ir a un lugar que no conozco','curiosidad'],['Disfrutar mis actividades favoritas a mi modo','libertad']]),
+        personalityQuestion('¿Qué te ayuda a confiar en una decisión?', [['Sentir que puedo hacerme cargo','valor'],['Saber que cuida a quienes me importan','cuidado'],['Haber considerado nuevas opciones','curiosidad'],['Tener razones claras para elegirla','ingenio']]),
+        personalityQuestion('Te encuentras una criatura asustada. ¿Qué haces?', [['Me acerco con cuidado para ayudar','valor'],['Intento que se sienta segura','cuidado'],['Observo qué podría necesitar','curiosidad'],['Busco la forma más tranquila de acercarme','serenidad']]),
+        personalityQuestion('¿Qué tipo de regalo elegirías para alguien?', [['Algo para su próxima aventura','valor'],['Algo personal que demuestre que le conozco','cuidado'],['Una experiencia nueva','curiosidad'],['Algo útil que le facilite un proyecto','ingenio']]),
+        personalityQuestion('Al llegar a un lugar concurrido, ¿qué prefieres?', [['Sumarme a la actividad principal','valor'],['Encontrar a mis acompañantes','cuidado'],['Recorrer y mirar qué ofrece','curiosidad'],['Buscar un rincón cómodo para observar','serenidad']]),
+        personalityQuestion('¿Qué te impulsa a seguir aprendiendo?', [['Querer dominar un reto','valor'],['Poder ayudar mejor a alguien','cuidado'],['Las preguntas que todavía no tienen respuesta','curiosidad'],['Mejorar mi manera de pensar','ingenio']]),
+        personalityQuestion('Si pudieras diseñar una habitación ideal, tendría…', [['Espacio para entrenar y probar cosas','valor'],['Un lugar cómodo para recibir amigos','cuidado'],['Libros, mapas y objetos curiosos','curiosidad'],['Un ambiente simple y relajante','serenidad']]),
+        personalityQuestion('¿Qué haces cuando un compañero tiene una idea arriesgada?', [['Le ayudo a intentarla con cuidado','valor'],['Compruebo que se sienta acompañado','cuidado'],['Pregunto qué puede pasar en cada opción','curiosidad'],['Le propongo un plan para reducir riesgos','ingenio']]),
+        personalityQuestion('¿Qué te gustaría que la gente recordara de ti?', [['Que no me rendí ante lo difícil','valor'],['Que podían contar conmigo','cuidado'],['Que siempre tenía curiosidad','curiosidad'],['Que encontraba maneras de resolverlo','ingenio']]),
+        personalityQuestion('¿Cómo te sientes al pasar tiempo a solas?', [['Lo uso para prepararme para algo nuevo','valor'],['A veces extraño compartirlo con alguien','cuidado'],['Me gusta explorar mis intereses','curiosidad'],['Me recarga y me deja ser yo','libertad']]),
+        personalityQuestion('¿Qué tarea escogerías en una expedición?', [['Abrir camino en una zona difícil','valor'],['Cuidar los suministros del grupo','cuidado'],['Registrar lo que encontramos','curiosidad'],['Trazar la ruta y revisar el equipo','ingenio']]),
+        personalityQuestion('Algo no sale como esperabas justo antes de una meta. ¿Qué haces?', [['Sigo adelante y enfrento el último tramo','valor'],['Pido apoyo y también lo ofrezco','cuidado'],['Busco una alternativa que no había notado','curiosidad'],['Reviso qué se puede ajustar sin apresurarme','serenidad']]),
+        personalityQuestion('¿Qué te gustaría aprender de un Pokémon compañero?', [['A enfrentar retos con más valor','valor'],['A entender mejor a quienes me rodean','cuidado'],['A mirar el mundo con curiosidad','curiosidad'],['A confiar en mi propio camino','libertad']])
+      ];
+      const PERSONALITY_MATCHES = [
+        {id:1,traits:['serenidad','cuidado','curiosidad']},{id:4,traits:['valor','libertad','curiosidad']},{id:7,traits:['ingenio','serenidad','cuidado']},
+        {id:25,traits:['valor','curiosidad','cuidado']},{id:39,traits:['cuidado','serenidad','curiosidad']},{id:52,traits:['ingenio','libertad','curiosidad']},
+        {id:54,traits:['curiosidad','serenidad','ingenio']},{id:58,traits:['valor','cuidado','libertad']},{id:94,traits:['ingenio','libertad','curiosidad']},
+        {id:133,traits:['curiosidad','libertad','cuidado']},{id:143,traits:['serenidad','cuidado','libertad']},{id:149,traits:['valor','cuidado','serenidad']},
+        {id:151,traits:['curiosidad','cuidado','libertad']},{id:152,traits:['serenidad','cuidado','libertad']},{id:155,traits:['serenidad','valor','libertad']},
+        {id:158,traits:['valor','curiosidad','libertad']},{id:172,traits:['curiosidad','cuidado','valor']},{id:196,traits:['ingenio','serenidad','curiosidad']},
+        {id:197,traits:['serenidad','libertad','cuidado']},{id:201,traits:['ingenio','curiosidad','libertad']},{id:249,traits:['serenidad','cuidado','ingenio']},
+        {id:252,traits:['libertad','ingenio','curiosidad']},{id:255,traits:['valor','curiosidad','cuidado']},{id:258,traits:['curiosidad','serenidad','valor']},
+        {id:280,traits:['cuidado','serenidad','curiosidad']},{id:302,traits:['libertad','ingenio','curiosidad']},{id:330,traits:['curiosidad','libertad','serenidad']},
+        {id:359,traits:['libertad','cuidado','ingenio']},{id:385,traits:['cuidado','serenidad','curiosidad']},{id:393,traits:['serenidad','ingenio','libertad']},
+        {id:448,traits:['valor','ingenio','cuidado']},{id:470,traits:['serenidad','libertad','cuidado']},{id:471,traits:['serenidad','ingenio','libertad']},
+        {id:479,traits:['curiosidad','ingenio','libertad']},{id:487,traits:['libertad','ingenio','valor']},{id:491,traits:['libertad','serenidad','ingenio']},
+        {id:494,traits:['valor','curiosidad','cuidado']},{id:501,traits:['valor','ingenio','libertad']},{id:570,traits:['ingenio','libertad','curiosidad']},
+        {id:612,traits:['valor','libertad','ingenio']},{id:658,traits:['ingenio','libertad','valor']},{id:700,traits:['cuidado','serenidad','valor']},
+        {id:722,traits:['serenidad','curiosidad','ingenio']},{id:725,traits:['libertad','serenidad','valor']},{id:728,traits:['cuidado','curiosidad','serenidad']},
+        {id:778,traits:['cuidado','libertad','curiosidad']},{id:813,traits:['curiosidad','valor','libertad']},{id:816,traits:['serenidad','ingenio','libertad']},
+        {id:831,traits:['serenidad','cuidado','libertad']},{id:849,traits:['libertad','valor','ingenio']},{id:876,traits:['cuidado','ingenio','serenidad']},
+        {id:906,traits:['curiosidad','libertad','ingenio']},{id:909,traits:['serenidad','curiosidad','valor']},{id:912,traits:['ingenio','valor','libertad']},
+        {id:934,traits:['serenidad','ingenio','curiosidad']},{id:1000,traits:['ingenio','libertad','curiosidad']},{id:1007,traits:['valor','cuidado','libertad']},
+        {id:1017,traits:['valor','curiosidad','cuidado']}
+      ];
+      const personalityState = {answers:Array(50).fill(null),index:0};
       const $ = (id) => document.getElementById(id);
 
       const safeStorage = {
@@ -1204,6 +1324,106 @@
         });
         $('quiz-feedback').textContent=isCorrect?'¡Correcto! Es '+(correct?.spanishName||titleName(correct?.name))+'.':'Era '+(correct?.spanishName||titleName(correct?.name))+'. ¡La siguiente ronda te espera!';
         $('quiz-next').hidden=false; $('quiz-next').disabled=false; updateQuizScore();
+      }
+      function personalityAnsweredCount() {
+        return personalityState.answers.filter(Boolean).length;
+      }
+      function updatePersonalityProgress() {
+        const count=personalityAnsweredCount();
+        $('personality-answered').textContent=count+' / 50 respondidas';
+        $('personality-progress-fill').style.width=(count*2)+'%';
+        $('personality-count').textContent='Pregunta '+(personalityState.index+1)+' de 50';
+      }
+      function renderPersonalityQuestion() {
+        const question=PERSONALITY_QUESTIONS[personalityState.index];
+        if(!question) return;
+        $('personality-question').hidden=false;
+        $('personality-result').hidden=true;
+        $('personality-question-text').textContent=question.text;
+        const selected=personalityState.answers[personalityState.index];
+        $('personality-options').innerHTML=question.options.map(option=>{
+          const isSelected=selected===option[1];
+          return '<button class="personality-option'+(isSelected?' selected':'')+'" type="button" data-personality-trait="'+option[1]+'" aria-pressed="'+isSelected+'">'+escapeHtml(option[0])+'</button>';
+        }).join('');
+        $('personality-prev').disabled=personalityState.index===0;
+        $('personality-next').disabled=!selected;
+        $('personality-next').textContent=personalityState.index===PERSONALITY_QUESTIONS.length-1?'Ver mi Pokémon':'Siguiente →';
+        updatePersonalityProgress();
+      }
+      function startPersonalityQuiz() {
+        personalityState.answers=Array(PERSONALITY_QUESTIONS.length).fill(null);
+        personalityState.index=0; personalityState.resultId=0;
+        $('personality-start').textContent='Reiniciar quiz';
+        $('personality-result').hidden=true;
+        renderPersonalityQuestion();
+      }
+      function calculatePersonalityResult() {
+        const scores=Object.fromEntries(PERSONALITY_AXES.map(axis=>[axis.id,0]));
+        personalityState.answers.forEach(axis=>{if(Object.prototype.hasOwnProperty.call(scores,axis)) scores[axis]++;});
+        const rankedAxes=PERSONALITY_AXES.map(axis=>({axis,value:scores[axis.id]})).sort((a,b)=>b.value-a.value);
+        const ranked=PERSONALITY_MATCHES.map(candidate=>{
+          const [first,second,third]=candidate.traits;
+          return {candidate,score:(scores[first]||0)*1.25+(scores[second]||0)+(scores[third]||0)*.75};
+        });
+        const bestScore=Math.max(...ranked.map(item=>item.score));
+        const ties=ranked.filter(item=>item.score===bestScore);
+        const axisIndex=Object.fromEntries(PERSONALITY_AXES.map((axis,index)=>[axis.id,index+1]));
+        const seed=personalityState.answers.reduce((value,axis,index)=>(value*31+axisIndex[axis]+index+1)>>>0,7);
+        return {match:ties[seed%ties.length].candidate,primary:rankedAxes[0].axis,secondary:rankedAxes[1].axis,scores};
+      }
+      async function showPersonalityResult() {
+        if(personalityState.answers.some(answer=>!answer)) {
+          personalityState.index=personalityState.answers.findIndex(answer=>!answer);
+          renderPersonalityQuestion();
+          return;
+        }
+        const result=calculatePersonalityResult(), p=byId(result.match.id);
+        if(!p) return;
+        personalityState.resultId=p.id;
+        const explanation='Tu perfil destaca por '+result.primary.axis.label.toLocaleLowerCase('es')+' y '+result.secondary.axis.label.toLocaleLowerCase('es')+'. '+result.primary.axis.description+' '+result.secondary.axis.description;
+        $('personality-question').hidden=true;
+        $('personality-result').hidden=false;
+        $('personality-count').textContent='¡Completaste las 50 preguntas!';
+        $('personality-answered').textContent='50 / 50 respondidas';
+        $('personality-progress-fill').style.width='100%';
+        $('personality-start').textContent='Volver a empezar';
+        $('personality-result').innerHTML='<div class="personality-result-card"><img class="personality-result-art" src="'+escapeHtml(pokemonImageUrl(p,false))+'" data-fallback="'+escapeHtml(pokemonImageFallback(p,false))+'" alt="Pokémon resultado del quiz: '+escapeHtml(speciesName(p))+'" loading="lazy"><div><div class="personality-result-kicker">Tu Pokémon compañero</div><h3 class="personality-result-name">'+escapeHtml(speciesName(p))+'</h3><p class="personality-result-copy">'+escapeHtml(explanation)+'</p><div class="personality-result-types" id="personality-result-types"><span class="personality-result-kicker">Cargando tipos…</span></div><div class="personality-result-actions"><button class="personality-open" type="button" data-personality-open="'+p.id+'">Ver ficha completa</button><button class="personality-restart" type="button" id="personality-restart">Repetir quiz</button></div></div></div>';
+        const resultId=p.id;
+        const requests=await Promise.allSettled([ensurePokemonInfo(p),ensureSpeciesInfo(p)]);
+        if(personalityState.resultId!==resultId||$('personality-result').hidden) return;
+        const pokemonResult=requests[0];
+        const nameResult=$('personality-result').querySelector('.personality-result-name');
+        const imageResult=$('personality-result').querySelector('.personality-result-art');
+        if(nameResult) nameResult.textContent=speciesName(p);
+        if(imageResult) {
+          imageResult.alt='Pokémon resultado del quiz: '+speciesName(p);
+          imageResult.src=pokemonImageUrl(p,false);
+          imageResult.dataset.fallback=pokemonImageFallback(p,false);
+        }
+        if(pokemonResult.status==='fulfilled') {
+          const types=pokemonResult.value.types.slice().sort((a,b)=>a.slot-b.slot).map(type=>type.type.name);
+          $('personality-result-types').innerHTML=types.map(typePill).join('');
+        } else $('personality-result-types').textContent='No se pudieron cargar los tipos ahora.';
+      }
+      function advancePersonalityQuiz() {
+        if(!personalityState.answers[personalityState.index]) return;
+        if(personalityState.index===PERSONALITY_QUESTIONS.length-1) { showPersonalityResult(); return; }
+        personalityState.index++; renderPersonalityQuestion();
+      }
+      function selectPersonalityAnswer(button) {
+        const axis=button.dataset.personalityTrait;
+        if(!PERSONALITY_AXES.some(entry=>entry.id===axis)) return;
+        personalityState.answers[personalityState.index]=axis;
+        $('personality-options').querySelectorAll('[data-personality-trait]').forEach(option=>{
+          const selected=option.dataset.personalityTrait===axis;
+          option.classList.toggle('selected',selected); option.setAttribute('aria-pressed',String(selected));
+        });
+        $('personality-next').disabled=false;
+        updatePersonalityProgress();
+      }
+      function openPersonalityResultDetails(id) {
+        const button=Number(id);
+        if(button>=1&&button<=DEX_COUNT) openDetails(button);
       }
       function memberSpeciesId(member) { return Number(typeof member === 'object' && member ? member.speciesId : member); }
       function normalizeTeamMember(value) {
@@ -1816,6 +2036,20 @@
         $('quiz-options').addEventListener('click',e=>{
           const answer=e.target.closest('[data-quiz-id]');
           if(answer) answerQuiz(Number(answer.dataset.quizId),answer);
+        });
+        $('personality-start').addEventListener('click',startPersonalityQuiz);
+        $('personality-prev').addEventListener('click',()=>{
+          if(personalityState.index>0) { personalityState.index--; renderPersonalityQuestion(); }
+        });
+        $('personality-next').addEventListener('click',advancePersonalityQuiz);
+        $('personality-options').addEventListener('click',e=>{
+          const option=e.target.closest('[data-personality-trait]');
+          if(option) selectPersonalityAnswer(option);
+        });
+        $('personality-result').addEventListener('click',e=>{
+          if(e.target.closest('#personality-restart')) { startPersonalityQuiz(); return; }
+          const details=e.target.closest('[data-personality-open]');
+          if(details) openPersonalityResultDetails(details.dataset.personalityOpen);
         });
         document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeTypeChart();closeModal();}});
         renderRegionMap($('region-map-select').value);
