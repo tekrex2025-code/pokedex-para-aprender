@@ -303,6 +303,56 @@
     .region-map-footer { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 8px 14px; margin-top: 9px; color: #8994a7; font-size: 9px; line-height: 1.5; }
     .region-map-source { color: #536fe2; font-weight: 800; text-decoration: none; }
     .region-map-source:hover { text-decoration: underline; }
+    .location-explorer-panel, .move-panel, .quiz-panel { margin-top: 18px; padding: 20px; background: #fff; border: 1px solid var(--line); border-radius: 17px; box-shadow: 0 6px 24px rgba(31,48,83,.035); }
+    .location-tools, .move-filter-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 9px; align-items: end; }
+    .location-tools label, .move-filter-grid label { display: grid; gap: 5px; color: #7c879b; font-size: 9px; font-weight: 850; letter-spacing: .06em; }
+    .location-tools input, .location-tools select, .move-filter-grid input, .move-filter-grid select { width: 100%; min-height: 39px; padding: 0 10px; border: 1px solid var(--line); border-radius: 9px; background: #fbfcfe; color: #39455c; font-size: 11px; font-weight: 650; letter-spacing: normal; }
+    .location-note, .move-note-top { margin: 9px 0 0; color: #929bad; font-size: 9px; line-height: 1.5; }
+    .location-status, .move-status, .quiz-feedback { min-height: 17px; margin-top: 8px; color: #788399; font-size: 10px; line-height: 1.5; }
+    .location-list { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 7px; max-height: 270px; margin-top: 9px; overflow: auto; }
+    .location-entry, .location-area-button, .move-entry, .quiz-answer { text-align: left; border: 1px solid #e9edf3; border-radius: 9px; background: #fbfcfe; color: #4c5971; }
+    .location-entry { display: flex; justify-content: space-between; align-items: center; gap: 6px; min-width: 0; padding: 8px 9px; font-size: 10px; font-weight: 750; }
+    .location-entry:hover, .location-area-button:hover, .move-entry:hover, .quiz-answer:hover { border-color: #cdd5fa; background: #f6f7ff; }
+    .location-entry small { flex: 0 0 auto; color: #98a2b2; font-size: 8px; font-weight: 700; }
+    .location-detail { margin-top: 12px; padding: 13px; border: 1px solid #e9edf3; border-radius: 11px; background: #fcfdff; }
+    .location-detail h3 { margin: 0; color: #3e4a61; font-size: 13px; }
+    .location-detail p { margin: 4px 0 9px; color: #8792a5; font-size: 9px; line-height: 1.5; }
+    .location-area-list { display: flex; flex-wrap: wrap; gap: 6px; }
+    .location-area-button { padding: 6px 8px; font-size: 9px; font-weight: 750; }
+    .location-area-button.selected { border-color: #aebaf6; background: #f0f2ff; color: #415ac2; }
+    .location-encounters { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 6px; margin-top: 10px; }
+    .encounter-entry { padding: 7px 8px; border: 1px solid #edf0f4; border-radius: 8px; background: #fff; color: #59667c; font-size: 9px; }
+    .encounter-entry small { display: block; margin-top: 3px; color: #919bad; font-size: 8px; }
+    .move-filter-grid { grid-template-columns: minmax(180px,2fr) repeat(2,minmax(130px,1fr)) auto; }
+    .move-load-button { min-height: 39px; padding: 0 12px; border: 1px solid #526fe7; border-radius: 9px; background: #526fe7; color: #fff; font-size: 10px; font-weight: 850; white-space: nowrap; }
+    .move-browser-layout { display: grid; grid-template-columns: minmax(0,1.15fr) minmax(260px,.85fr); gap: 10px; margin-top: 10px; }
+    .move-results { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); align-content: start; gap: 6px; max-height: 345px; overflow: auto; }
+    .move-entry { min-width: 0; padding: 7px 8px; font-size: 9px; font-weight: 750; }
+    .move-entry.selected { border-color: #aebaf6; background: #f0f2ff; color: #415ac2; }
+    .move-detail { min-height: 130px; padding: 13px; border: 1px solid #e9edf3; border-radius: 10px; background: #fcfdff; }
+    .move-detail h3 { margin: 0; color: #3e4a61; font-size: 13px; }
+    .move-detail .type-pill { display: inline-flex; margin-top: 6px; }
+    .move-detail-meta { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 8px; }
+    .move-detail-meta span { padding: 4px 6px; border-radius: 6px; background: #f1f3f8; color: #657188; font-size: 8px; font-weight: 750; }
+    .move-effect { margin: 9px 0 0; color: #69758b; font-size: 9px; line-height: 1.6; }
+    .quiz-toolbar { display: flex; justify-content: space-between; align-items: center; gap: 10px; }
+    .quiz-score { color: #68758d; font-size: 10px; font-weight: 800; }
+    .quiz-start, .quiz-next { padding: 8px 11px; border: 1px solid #526fe7; border-radius: 9px; background: #526fe7; color: white; font-size: 10px; font-weight: 850; }
+    .quiz-next:disabled { opacity: .55; cursor: not-allowed; }
+    .quiz-card { display: grid; justify-items: center; gap: 8px; margin-top: 12px; padding: 13px; border: 1px solid #e9edf3; border-radius: 12px; background: linear-gradient(135deg,#fbfcff,#f6f7fb); }
+    .quiz-card[hidden], .team-share-output[hidden] { display: none; }
+    .quiz-prompt { color: #45526b; font-size: 11px; font-weight: 850; }
+    .quiz-image { width: 126px; height: 126px; object-fit: contain; filter: brightness(0) contrast(100%); }
+    .quiz-image.revealed { filter: none; }
+    .quiz-options { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 7px; width: min(540px,100%); }
+    .quiz-answer { padding: 9px; text-align: center; font-size: 10px; font-weight: 750; }
+    .quiz-answer.correct { border-color: #a8dfc0; background: #eaf8ef; color: #26774b; }
+    .quiz-answer.wrong { border-color: #f0b7bc; background: #fff0f1; color: #a43e48; }
+    .quiz-answer:disabled { cursor: default; }
+    .team-share-output { display: grid; grid-template-columns: minmax(0,1fr) auto; gap: 7px; margin: 8px 0; }
+    .team-share-output label { grid-column: 1/-1; color: #7c879b; font-size: 9px; font-weight: 800; }
+    .team-share-output input { min-width: 0; padding: 8px; border: 1px solid var(--line); border-radius: 8px; color: #536078; font-size: 9px; }
+    .team-share-output button { border: 1px solid var(--line); border-radius: 8px; background: #fff; color: #526078; padding: 0 10px; font-size: 9px; font-weight: 800; }
     .type-chart { border-collapse: separate; border-spacing: 3px; min-width: 940px; font-size: 9px; text-align: center; }
     .type-chart th { position: sticky; top: 0; z-index: 2; background: #fff; color: #657188; font-weight: 800; padding: 5px 4px; min-width: 38px; }
     .type-chart th:first-child { left: 0; z-index: 4; min-width: 104px; text-align: left; }
@@ -321,7 +371,7 @@
     @media (max-width: 900px) { .grid { grid-template-columns: repeat(3,minmax(0,1fr)); } .filter-grid,.advanced { grid-template-columns: repeat(2,minmax(0,1fr)); }.team-slots { grid-template-columns: repeat(3,minmax(0,1fr)); }.assistant-grid { grid-template-columns: 1fr 1fr; }.reveal-grid { grid-template-columns: 1fr; } }
     @media (max-width: 620px) { .shell { width: min(100% - 24px, 500px); }.topbar { height: 66px; }.top-meta .tag { display:none; }.chart-trigger { font-size:10px; padding:7px 9px; }.region-chip { padding:7px 9px; font-size:10px; }main { padding-top: 10px; }.hero { padding: 26px 20px 23px; border-radius: 18px; }.hero-bottom { align-items: stretch; }.search-wrap { width: 100%; }.hero-btn { flex: 1; }.hero-stats { gap: 14px; flex-wrap: wrap; }.reveal-panel { padding: 14px; }.reveal-head { flex-direction: column; }.reveal-source { align-self: flex-start; }.reveal-card { grid-template-columns: minmax(0,1fr) 76px; padding: 11px; }.reveal-art { width: 76px; height: 76px; }.filters { padding: 16px; }.filter-grid,.advanced { grid-template-columns: 1fr 1fr; gap: 10px; }.grid { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 10px; }.pokemon-card { height: 202px; }.card-image { width: 112px; height: 112px; right: 6px; bottom: 17px; }.card-info { left: 12px; right: 57px; bottom: 15px; }.pokemon-name { font-size: 14px; }.type-pill { padding: 4px 6px; font-size: 8px; }.card-top { padding: 12px 11px 0; }.results-bar { align-items: flex-start; }.results-title { font-size: 14px; }.sort-wrap { padding-top: 2px; }.team-panel { padding: 14px; }.team-head { align-items: flex-start; flex-direction: column; }.team-actions { width: 100%; justify-content: space-between; }.team-slots { grid-template-columns: repeat(2,minmax(0,1fr)); }.team-slot { min-height: 65px; }.team-slot-art { width: 42px; height: 42px; }.assistant-grid { grid-template-columns: 1fr; }.move-list { grid-template-columns: 1fr 1fr; }.modal-backdrop { padding: 10px; }.modal { max-height: 95vh; border-radius: 17px; }.modal-hero { min-height: 210px; padding: 23px 18px; }.modal-hero::after { width: 205px; height: 205px; right: 6px; top: 8px; }.modal-title-block { max-width: 62%; padding-top: 17px; }.modal-art { width: 47%; height: 205px; right: 2px; }.modal-body { padding: 17px 18px 23px; }.detail-metrics { grid-template-columns: repeat(2,1fr); }.evo-item { grid-template-columns: 1fr auto 1fr; gap: 5px; padding: 8px; }.evo-condition { font-size: 9px; }.alternate-forms { grid-template-columns: 1fr; }.chart-backdrop { padding: 8px; }.chart-modal { max-height: 96vh; border-radius: 14px; }.chart-head { padding: 17px 16px 12px; }.chart-head h2 { font-size: 17px; }.chart-legend { padding: 10px 16px 0; }.chart-scroll { max-height: 68vh; padding: 10px 8px 18px; }footer { align-items: flex-start; flex-direction: column; gap: 8px; } }
     @media (max-width: 370px) { .filter-grid,.advanced { grid-template-columns: 1fr; }.pokemon-card { height: 188px; }.card-image { width: 100px; height: 100px; }.pokemon-name { font-size: 13px; } }
-    @media (max-width: 620px) { .region-map-panel { padding: 14px; } .region-map-head { display: grid; grid-template-columns: 1fr; } .region-map-select-wrap { width: 100%; } .region-map-frame { min-height: 170px; max-height: 62vh; padding: 8px; } .region-map-image { max-height: 58vh; } }
+    @media (max-width: 620px) { .region-map-panel,.location-explorer-panel,.move-panel,.quiz-panel { padding: 14px; } .region-map-head { display: grid; grid-template-columns: 1fr; } .region-map-select-wrap { width: 100%; } .region-map-frame { min-height: 170px; max-height: 62vh; padding: 8px; } .region-map-image { max-height: 58vh; } .location-tools,.move-filter-grid { grid-template-columns: 1fr 1fr; } .location-list,.location-encounters { grid-template-columns: repeat(2,minmax(0,1fr)); } .move-browser-layout { grid-template-columns: 1fr; } .move-results { grid-template-columns: repeat(2,minmax(0,1fr)); max-height: 250px; } .quiz-options { grid-template-columns: 1fr 1fr; } }
     @media (max-width: 700px) { .progress-panel,.compare-panel { padding: 14px; }.tool-panel-head { flex-direction: column; }.progress-region-wrap { width: 100%; }.progress-stats { grid-template-columns: repeat(2,minmax(0,1fr)); }.compare-select-grid,.compare-summary,.compare-matchups { grid-template-columns: 1fr; } }
   </style>
 </head>
@@ -378,8 +428,9 @@
       </section>
 
       <section class="team-panel" id="team-panel" aria-label="Armador de equipo Pokémon">
-        <div class="team-head"><div><div class="team-title">Arma tu equipo</div><div class="team-caption">Elige hasta seis Pokémon o formas concretas. El asistente analiza los tipos de cada forma por separado.</div></div><div class="team-actions"><span class="team-count" id="team-count">0 / 6</span><button class="team-action primary" id="analyze-team" type="button">Analizar equipo</button><button class="team-action" id="clear-team" type="button">Vaciar</button></div></div>
+        <div class="team-head"><div><div class="team-title">Arma tu equipo</div><div class="team-caption">Elige hasta seis Pokémon o formas concretas. El asistente analiza los tipos de cada forma por separado.</div></div><div class="team-actions"><span class="team-count" id="team-count">0 / 6</span><button class="team-action primary" id="analyze-team" type="button">Analizar equipo</button><button class="team-action" id="share-team" type="button">Compartir</button><button class="team-action" id="clear-team" type="button">Vaciar</button></div></div>
         <div class="team-slots" id="team-slots" aria-live="polite"></div>
+        <div class="team-share-output" id="team-share-output" hidden><label for="team-share-link">Enlace para compartir este equipo</label><input id="team-share-link" type="url" readonly><button id="copy-team-link" type="button">Copiar enlace</button></div>
         <div class="team-status" id="team-status" role="status"></div>
         <section class="team-assistant" id="team-assistant" hidden aria-live="polite"></section>
       </section>
@@ -394,6 +445,37 @@
         <p class="region-map-caption" id="region-map-caption">Kanto · Mapa de la región de los juegos originales.</p>
         <div class="region-map-frame"><img class="region-map-image" id="region-map-image" src="https://archives.bulbagarden.net/media/upload/7/78/Kanto.png" alt="Mapa de Kanto" loading="lazy" referrerpolicy="no-referrer"><div class="region-map-unavailable" id="region-map-unavailable" hidden>No se pudo cargar este mapa. Comprueba tu conexión o abre la imagen original desde el enlace.</div></div>
         <div class="region-map-footer"><span>Las imágenes se cargan desde Bulbagarden Archives.</span><a class="region-map-source" id="region-map-source" href="https://archives.bulbagarden.net/wiki/File:Kanto.png" target="_blank" rel="noreferrer">Ver mapa original de Kanto ↗</a></div>
+      </section>
+
+      <section class="location-explorer-panel" aria-labelledby="location-explorer-title">
+        <div class="tool-panel-head"><div><h2 class="tool-panel-title" id="location-explorer-title">Explora lugares y encuentros</h2><p class="tool-panel-note">Busca ciudades, rutas y zonas de cada región; abre un lugar para consultar sus áreas y Pokémon que pueden aparecer.</p></div></div>
+        <div class="location-tools">
+          <label for="location-region">REGIÓN<select id="location-region"><option value="0">Kanto · Generación I</option><option value="1">Johto · Generación II</option><option value="2">Hoenn · Generación III</option><option value="3">Sinnoh · Generación IV</option><option value="4">Unova · Generación V</option><option value="5">Kalos · Generación VI</option><option value="6">Alola · Generación VII</option><option value="7">Galar · Generación VIII</option><option value="8">Hisui · antigua Sinnoh</option><option value="9">Paldea · Generación IX</option></select></label>
+          <label for="location-search">BUSCAR LUGAR<input id="location-search" type="search" placeholder="Ej. Cerulean City"></label>
+        </div>
+        <p class="location-note">Los nombres pueden mostrarse en inglés cuando la PokéAPI no ofrece traducción al español. Hisui se muestra en el mapa; la API no separa su lista de ubicaciones de Sinnoh.</p>
+        <div class="location-status" id="location-status" role="status">Cargando lugares de Kanto…</div>
+        <div class="location-list" id="location-list" aria-live="polite"></div>
+        <div class="location-detail" id="location-detail" hidden aria-live="polite"></div>
+      </section>
+
+      <section class="move-panel" aria-labelledby="move-browser-title">
+        <div class="tool-panel-head"><div><h2 class="tool-panel-title" id="move-browser-title">Buscador de movimientos</h2><p class="tool-panel-note">Filtra por nombre, tipo y generación. Selecciona un movimiento para ver potencia, precisión, PP, categoría y efecto.</p></div></div>
+        <div class="move-filter-grid">
+          <label for="move-search">NOMBRE<input id="move-search" type="search" placeholder="Ej. Thunderbolt, Surf, Protect"></label>
+          <label for="move-type">TIPO<select id="move-type"><option value="all">Todos los tipos</option></select></label>
+          <label for="move-generation">GENERACIÓN<select id="move-generation"><option value="all">Todas</option><option value="1">Generación I</option><option value="2">Generación II</option><option value="3">Generación III</option><option value="4">Generación IV</option><option value="5">Generación V</option><option value="6">Generación VI</option><option value="7">Generación VII</option><option value="8">Generación VIII</option><option value="9">Generación IX</option></select></label>
+          <button class="move-load-button" id="load-moves" type="button">Cargar movimientos</button>
+        </div>
+        <p class="move-note-top">La búsqueda usa los nombres del catálogo en inglés; los detalles muestran la traducción al español cuando está disponible. Los datos quedan en caché en este navegador.</p>
+        <div class="move-status" id="move-status" role="status">Pulsa “Cargar movimientos” para abrir el catálogo.</div>
+        <div class="move-browser-layout"><div class="move-results" id="move-results" aria-label="Resultados de movimientos"></div><div class="move-detail" id="move-detail" aria-live="polite">Elige un movimiento para consultar sus datos.</div></div>
+      </section>
+
+      <section class="quiz-panel" aria-labelledby="quiz-title">
+        <div class="tool-panel-head"><div><h2 class="tool-panel-title" id="quiz-title">Reto de siluetas</h2><p class="tool-panel-note">Adivina el Pokémon y aprende sus nombres mientras sumas aciertos. Cada ronda elige una especie distinta al azar.</p></div></div>
+        <div class="quiz-toolbar"><span class="quiz-score" id="quiz-score">Aciertos: 0 · Ronda 0</span><div><button class="quiz-start" id="quiz-start" type="button">Empezar reto</button> <button class="quiz-next" id="quiz-next" type="button" disabled hidden>Siguiente →</button></div></div>
+        <div class="quiz-card" id="quiz-card" hidden><div class="quiz-prompt" id="quiz-prompt">¿Qué Pokémon es?</div><img class="quiz-image" id="quiz-image" src="" alt="Silueta misteriosa"><div class="quiz-options" id="quiz-options"></div><div class="quiz-feedback" id="quiz-feedback" role="status"></div></div>
       </section>
 
       <section class="filters" aria-label="Filtros de la Pokédex">
@@ -520,6 +602,7 @@
       const METHOD_LABELS = {'level':'Subir de nivel','item':'Objeto o piedra','trade':'Intercambio','special':'Método especial'};
       const PROGRESS_PROFILES = ['all','kanto','johto','hoenn','sinnoh','unova','kalos','alola','galar','paldea'];
       const state = { species: [], filtered: [], page: 1, pageSize: PAGE_DEFAULT, type: 'all', typeIds: null, typeData: null, typePromise: null, favoritesOnly: false, favorites: new Set(), team: [], teamRuntime: [], shiny: new Set(), shinyForms: new Set(), progress: {}, progressProfile: 'all', region: 'all', sort: 'number', evoMethod: 'all', minLevel: null, maxLevel: null, evoIndex: null, evoPromise: null, loading: false };
+      const explorerState = { locations: [], locationRegion: 0, locationToken: 0, locationDetailToken: 0, moveIndex: null, movePromise: null, moveFilterToken: 0, moveTimer: 0, selectedMoveUrl: '', quizCurrentId: 0, quizOptions: [], quizScore: 0, quizRound: 0, quizAnswered: false };
       const $ = (id) => document.getElementById(id);
 
       const safeStorage = {
@@ -951,6 +1034,177 @@
           image.hidden = false;
         }
       }
+      function searchFold(value) {
+        return String(value || '').toLocaleLowerCase('es').normalize('NFD').replace(/[\u0300-\u036f]/g,'');
+      }
+      function localizedResourceName(resource, fallback) {
+        const names=resource?.names||[];
+        return names.find(entry=>entry.language?.name==='es-419')?.name||names.find(entry=>entry.language?.name==='es')?.name||names.find(entry=>entry.language?.name==='en')?.name||fallback;
+      }
+      function renderLocationList() {
+        const query=searchFold($('location-search').value);
+        const entries=explorerState.locations.filter(entry=>!query||searchFold(titleName(entry.name)).includes(query));
+        if(!entries.length) { $('location-list').innerHTML=''; $('location-status').textContent='No hay lugares que coincidan con esa búsqueda.'; return; }
+        $('location-list').innerHTML=entries.map(entry=>{
+          const label=titleName(entry.name);
+          return '<button class="location-entry" type="button" data-location-url="'+escapeHtml(entry.url)+'" aria-label="Ver '+escapeHtml(label)+'"><span>'+escapeHtml(label)+'</span><small>Ver áreas ›</small></button>';
+        }).join('');
+        $('location-status').textContent=entries.length+' lugares'+(query?' coinciden con la búsqueda.':' en esta región.');
+      }
+      async function loadRegionLocations(index) {
+        const selected=Number(index), token=++explorerState.locationToken;
+        explorerState.locationDetailToken++;
+        explorerState.locationRegion=selected; explorerState.locations=[];
+        $('location-search').value=''; $('location-list').innerHTML=''; $('location-detail').hidden=true;
+        const apiRegion=selected<8?selected+1:selected===9?9:0;
+        if(!apiRegion) { $('location-status').textContent='El mapa de Hisui está disponible arriba. La PokéAPI agrupa sus ubicaciones con Sinnoh y no ofrece un listado histórico independiente.'; return; }
+        $('location-status').textContent='Cargando lugares de '+REGION_MAPS[selected].name+'…';
+        try {
+          const data=await api('/region/'+apiRegion+'/');
+          if(token!==explorerState.locationToken) return;
+          explorerState.locations=(data.locations||[]).slice().sort((a,b)=>a.name.localeCompare(b.name));
+          renderLocationList();
+        } catch(error) {
+          if(token===explorerState.locationToken) $('location-status').textContent='No se pudieron cargar los lugares. Revisa tu conexión e inténtalo de nuevo.';
+        }
+      }
+      async function loadLocationDetails(url) {
+        const token=++explorerState.locationDetailToken;
+        $('location-detail').hidden=false; $('location-detail').innerHTML='<p>Cargando áreas y encuentros…</p>';
+        try {
+          const data=await api(url);
+          if(token!==explorerState.locationDetailToken) return;
+          const name=localizedResourceName(data,titleName(data.name));
+          const areas=data.areas||[];
+          $('location-detail').innerHTML='<h3>'+escapeHtml(name)+'</h3><p>'+escapeHtml(REGION_MAPS[explorerState.locationRegion].name)+' · '+areas.length+' áreas registradas.</p>'+
+            (areas.length?'<div class="location-area-list">'+areas.map(area=>'<button class="location-area-button" type="button" data-area-url="'+escapeHtml(area.url)+'">'+escapeHtml(titleName(area.name))+'</button>').join('')+'</div>':'<p>No hay áreas registradas para este lugar.</p>')+
+            '<div id="location-area-results" class="location-area-results"><p>Elige un área para consultar sus encuentros.</p></div>';
+        } catch(error) {
+          if(token===explorerState.locationDetailToken) $('location-detail').innerHTML='<p>No se pudieron cargar los detalles de este lugar.</p>';
+        }
+      }
+      async function loadLocationArea(url, button) {
+        const target=$('location-area-results');
+        if(!target) return;
+        target.innerHTML='<p>Cargando encuentros…</p>';
+        if(button) document.querySelectorAll('.location-area-button').forEach(item=>item.classList.toggle('selected',item===button));
+        try {
+          const data=await api(url);
+          const encounters=(data.pokemon_encounters||[]).slice().sort((a,b)=>a.pokemon.name.localeCompare(b.pokemon.name));
+          if(!encounters.length) { target.innerHTML='<p>No hay encuentros registrados para esta área.</p>'; return; }
+          const cards=encounters.map(encounter=>{
+            const details=(encounter.version_details||[]).flatMap(version=>version.encounter_details||[]);
+            const levels=details.map(detail=>Number(detail.min_level)).concat(details.map(detail=>Number(detail.max_level))).filter(level=>level>0);
+            const range=levels.length?'Niveles '+Math.min(...levels)+'–'+Math.max(...levels):'Nivel no indicado';
+            return '<div class="encounter-entry">'+escapeHtml(titleName(encounter.pokemon.name))+'<small>'+range+'</small></div>';
+          }).join('');
+          target.innerHTML='<p>'+escapeHtml(titleName(data.name))+' · '+encounters.length+' Pokémon registrados.</p><div class="location-encounters">'+cards+'</div>';
+        } catch(error) { target.innerHTML='<p>No se pudieron cargar los encuentros de esta área.</p>'; }
+      }
+      function localizedMoveName(move) {
+        return localizedResourceName(move,titleName(move?.name));
+      }
+      function generationLabel(id) {
+        return ['','Generación I','Generación II','Generación III','Generación IV','Generación V','Generación VI','Generación VII','Generación VIII','Generación IX'][Number(id)]||'Generación '+id;
+      }
+      async function loadMoveIndex() {
+        if(explorerState.moveIndex) { await filterMoveIndex(); return; }
+        if(explorerState.movePromise) { await explorerState.movePromise; return; }
+        $('load-moves').disabled=true; $('load-moves').textContent='Cargando…'; $('move-status').textContent='Consultando catálogo de movimientos…';
+        explorerState.movePromise=api('/move?limit=2000').then(data=>{
+          explorerState.moveIndex=data.results||[];
+        }).catch(error=>{
+          $('move-status').textContent='No se pudo cargar el catálogo. Revisa tu conexión e inténtalo de nuevo.';
+          throw error;
+        }).finally(()=>{
+          explorerState.movePromise=null; $('load-moves').disabled=false; $('load-moves').textContent='Actualizar resultados';
+        });
+        try { await explorerState.movePromise; await filterMoveIndex(); } catch(error) {}
+      }
+      async function filterMoveIndex() {
+        if(!explorerState.moveIndex) return;
+        const token=++explorerState.moveFilterToken;
+        const query=searchFold($('move-search').value), type=$('move-type').value, generation=$('move-generation').value;
+        $('move-status').textContent='Aplicando filtros…';
+        try {
+          const requests=[];
+          if(type!=='all') requests.push(api('/type/'+encodeURIComponent(type)+'/').then(data=>new Set((data.moves||[]).map(move=>move.name))));
+          if(generation!=='all') requests.push(api('/generation/'+generation+'/').then(data=>new Set((data.moves||[]).map(move=>move.name))));
+          const sets=await Promise.all(requests);
+          if(token!==explorerState.moveFilterToken) return;
+          let filtered=explorerState.moveIndex;
+          if(type!=='all') filtered=filtered.filter(move=>sets[0].has(move.name));
+          if(generation!=='all') filtered=filtered.filter(move=>sets[type!=='all'?1:0].has(move.name));
+          if(query) filtered=filtered.filter(move=>searchFold(titleName(move.name)).includes(query));
+          const shown=filtered.slice(0,60);
+          $('move-results').innerHTML=shown.map(move=>'<button class="move-entry'+(move.url===explorerState.selectedMoveUrl?' selected':'')+'" type="button" data-move-url="'+escapeHtml(move.url)+'">'+escapeHtml(titleName(move.name))+'</button>').join('');
+          $('move-status').textContent=filtered.length+' movimientos'+(filtered.length>shown.length?' · mostrando '+shown.length+'; afina la búsqueda para encontrar uno concreto.':'.');
+          if(!shown.length) $('move-results').innerHTML='<div class="move-note">No hay movimientos con esos filtros.</div>';
+        } catch(error) {
+          if(token===explorerState.moveFilterToken) $('move-status').textContent='No se pudieron aplicar los filtros. Revisa tu conexión e inténtalo de nuevo.';
+        }
+      }
+      async function showMoveDetails(url, button) {
+        explorerState.selectedMoveUrl=url;
+        document.querySelectorAll('.move-entry').forEach(item=>item.classList.toggle('selected',item===button));
+        $('move-detail').innerHTML='Cargando detalles del movimiento…';
+        try {
+          const move=await api(url);
+          const name=localizedMoveName(move), type=move.type?.name||'normal';
+          const category=move.damage_class?.name==='physical'?'Físico':move.damage_class?.name==='special'?'Especial':'Estado';
+          const gen=resourceId(move.generation?.url);
+          const effectEntry=(move.effect_entries||[]).find(entry=>entry.language?.name==='es-419')||(move.effect_entries||[]).find(entry=>entry.language?.name==='es')||(move.effect_entries||[]).find(entry=>entry.language?.name==='en');
+          const effect=effectEntry?.short_effect||effectEntry?.effect||'La PokéAPI no ofrece una descripción para este movimiento.';
+          const effectText=effect.replace(/\$effect_chance/g,String(move.effect_chance??'')).replace(/\$min_hits/g,String(move.meta?.min_hits??'')).replace(/\$max_hits/g,String(move.meta?.max_hits??''));
+          $('move-detail').innerHTML='<h3>'+escapeHtml(name)+'</h3>'+typePill(type)+'<div class="move-detail-meta"><span>'+category+'</span><span>Potencia: '+(move.power??'—')+'</span><span>Precisión: '+(move.accuracy==null?'—':move.accuracy+'%')+'</span><span>PP: '+(move.pp??'—')+'</span><span>'+escapeHtml(generationLabel(gen))+'</span></div><p class="move-effect">'+escapeHtml(effectText)+'</p>';
+        } catch(error) { $('move-detail').innerHTML='<p>No se pudieron cargar los detalles de este movimiento.</p>'; }
+      }
+      function updateQuizScore() {
+        $('quiz-score').textContent='Aciertos: '+explorerState.quizScore+' · Ronda '+explorerState.quizRound;
+      }
+      function chooseQuizOptions(correct) {
+        const options=[correct], ids=new Set([correct.id]);
+        while(options.length<4&&options.length<state.species.length) {
+          const candidate=state.species[Math.floor(Math.random()*state.species.length)];
+          if(!ids.has(candidate.id)) { ids.add(candidate.id); options.push(candidate); }
+        }
+        return options.sort(()=>Math.random()-.5);
+      }
+      async function nextQuizQuestion() {
+        if(!state.species.length) { $('quiz-feedback').textContent='La Pokédex todavía está cargando.'; return; }
+        explorerState.quizRound++; explorerState.quizAnswered=false;
+        const candidates=state.species.filter(p=>p.id!==explorerState.quizCurrentId);
+        const pool=candidates.length?candidates:state.species;
+        const correct=pool[Math.floor(Math.random()*pool.length)];
+        explorerState.quizCurrentId=correct.id; explorerState.quizOptions=chooseQuizOptions(correct);
+        $('quiz-card').hidden=false; $('quiz-feedback').textContent=''; $('quiz-prompt').textContent='¿Qué Pokémon es?';
+        $('quiz-next').disabled=true; $('quiz-next').hidden=true; $('quiz-image').classList.remove('revealed');
+        $('quiz-image').src=spriteUrl(correct.id,false,false); $('quiz-image').dataset.fallback=spriteUrl(correct.id,true,false);
+        $('quiz-image').alt='Silueta misteriosa del Pokémon número '+fmtDex(correct.id);
+        $('quiz-options').innerHTML='<div class="move-note">Preparando opciones…</div>';
+        updateQuizScore();
+        await Promise.all(explorerState.quizOptions.map(p=>ensureSpeciesInfo(p).catch(()=>null)));
+        if(explorerState.quizCurrentId!==correct.id||explorerState.quizAnswered) return;
+        $('quiz-options').innerHTML=explorerState.quizOptions.map(p=>'<button class="quiz-answer" type="button" data-quiz-id="'+p.id+'">'+escapeHtml(p.spanishName||titleName(p.name))+'</button>').join('');
+      }
+      function startQuiz() {
+        explorerState.quizScore=0; explorerState.quizRound=0; updateQuizScore(); nextQuizQuestion();
+      }
+      function answerQuiz(id, button) {
+        if(explorerState.quizAnswered) return;
+        explorerState.quizAnswered=true;
+        const correctId=explorerState.quizCurrentId, correct=byId(correctId), isCorrect=Number(id)===correctId;
+        if(isCorrect) explorerState.quizScore++;
+        $('quiz-image').classList.add('revealed');
+        $('quiz-options').querySelectorAll('[data-quiz-id]').forEach(option=>{
+          const optionId=Number(option.dataset.quizId);
+          option.disabled=true;
+          if(optionId===correctId) option.classList.add('correct');
+          if(option===button&&!isCorrect) option.classList.add('wrong');
+        });
+        $('quiz-feedback').textContent=isCorrect?'¡Correcto! Es '+(correct?.spanishName||titleName(correct?.name))+'.':'Era '+(correct?.spanishName||titleName(correct?.name))+'. ¡La siguiente ronda te espera!';
+        $('quiz-next').hidden=false; $('quiz-next').disabled=false; updateQuizScore();
+      }
       function memberSpeciesId(member) { return Number(typeof member === 'object' && member ? member.speciesId : member); }
       function normalizeTeamMember(value) {
         if (typeof value === 'number' || (typeof value === 'string' && /^\d+$/.test(value))) {
@@ -973,9 +1227,45 @@
       function persistTeam() {
         safeStorage.set('dexkanto:team', JSON.stringify(state.team.map(member=>({speciesId:memberSpeciesId(member),pokemonId:Number(member.pokemonId)||memberSpeciesId(member),formKey:member.formKey||'',formLabel:member.formLabel||'',kind:member.kind||'base'}))));
       }
+      function encodeTeamLinkData() {
+        const team=state.team.map(member=>({speciesId:memberSpeciesId(member),pokemonId:Number(member.pokemonId)||memberSpeciesId(member),formKey:member.formKey||'',formLabel:member.formLabel||'',kind:member.kind||'base'}));
+        const bytes=new TextEncoder().encode(JSON.stringify(team));
+        let binary=''; bytes.forEach(byte=>{binary+=String.fromCharCode(byte);});
+        return btoa(binary).replace(/\+/g,'-').replace(/\//g,'_').replace(/=+$/,'');
+      }
+      function teamFromSharedUrl() {
+        const token=new URLSearchParams(window.location.search).get('equipo');
+        if(!token) return null;
+        try {
+          const normalized=token.replace(/-/g,'+').replace(/_/g,'/'), padded=normalized+'='.repeat((4-normalized.length%4)%4);
+          const binary=atob(padded), bytes=Uint8Array.from(binary,char=>char.charCodeAt(0));
+          const parsed=JSON.parse(new TextDecoder().decode(bytes));
+          if(!Array.isArray(parsed)) return null;
+          return parsed.map(normalizeTeamMember).filter(Boolean).slice(0,6);
+        } catch(error) { return null; }
+      }
+      async function copySharedTeamLink() {
+        const input=$('team-share-link');
+        if(!input.value) return;
+        try {
+          await navigator.clipboard.writeText(input.value);
+          teamStatus('Enlace copiado. Quien lo abra verá este equipo en su Pokédex.');
+        } catch(error) {
+          input.focus(); input.select();
+          teamStatus('Seleccioné el enlace para que puedas copiarlo manualmente.');
+        }
+      }
+      async function shareTeam() {
+        if(!state.team.length) { teamStatus('Añade al menos un Pokémon antes de compartir el equipo.'); return; }
+        const url=new URL(window.location.href);
+        url.searchParams.set('equipo',encodeTeamLinkData());
+        $('team-share-link').value=url.toString(); $('team-share-output').hidden=false;
+        await copySharedTeamLink();
+      }
       function hideTeamAnalysis() { state.teamRuntime=[]; $('team-assistant').hidden = true; $('team-assistant').innerHTML = ''; }
       function teamStatus(message = '') { $('team-status').textContent = message; }
       function renderTeam() {
+        if($('team-share-output')) $('team-share-output').hidden=true;
         $('team-count').textContent = `${state.team.length} / 6`;
         const slots = Array.from({length:6},(_,index) => {
           const member=state.team[index], p=member ? byId(memberSpeciesId(member)) : null;
@@ -1401,12 +1691,23 @@
 
       function init() {
         try { const saved = JSON.parse(safeStorage.get('dexkanto:favorites') || '[]'); state.favorites = new Set(saved.map(Number)); } catch { state.favorites = new Set(); }
-        try { const savedTeam = JSON.parse(safeStorage.get('dexkanto:team') || '[]'); state.team = savedTeam.map(normalizeTeamMember).filter(Boolean).slice(0,6); } catch { state.team = []; }
+        const sharedTeam=teamFromSharedUrl();
+        try {
+          const savedTeam = JSON.parse(safeStorage.get('dexkanto:team') || '[]');
+          state.team = sharedTeam!==null ? sharedTeam : savedTeam.map(normalizeTeamMember).filter(Boolean).slice(0,6);
+          if(sharedTeam!==null) {
+            persistTeam();
+            const cleanUrl=new URL(window.location.href); cleanUrl.searchParams.delete('equipo');
+            window.history.replaceState(null,'',cleanUrl.pathname+cleanUrl.search+cleanUrl.hash);
+          }
+        } catch { state.team = sharedTeam||[]; }
         try { const savedProgress=JSON.parse(safeStorage.get('dexkanto:progress')||'{}'); state.progress=savedProgress&&typeof savedProgress==='object'&&!Array.isArray(savedProgress)?savedProgress:{}; } catch { state.progress={}; }
         const savedProfile=safeStorage.get('dexkanto:progress-profile'); state.progressProfile=PROGRESS_PROFILES.includes(savedProfile)?savedProfile:'all'; $('progress-region').value=state.progressProfile;
+        $('move-type').innerHTML += TYPE_ORDER.map(t=>'<option value="'+t+'">'+TYPE_NAMES[t]+'</option>').join('');
         $('type').innerHTML += TYPE_ORDER.map(t=>`<option value="${t}">${TYPE_NAMES[t]}</option>`).join('');
         updateFavoriteButton();
         renderTeam();
+        if(sharedTeam!==null) teamStatus('Equipo recibido desde un enlace compartido. Puedes analizarlo o editarlo.');
         $('search').addEventListener('input', () => { state.page=1; applyFilters(); });
         $('region').addEventListener('change', e=>{state.region=e.target.value;state.page=1;applyFilters();});
         $('type').addEventListener('change', e => setType(e.target.value));
@@ -1441,6 +1742,8 @@
         $('next-page').addEventListener('click', () => { if(state.page<Math.ceil(state.filtered.length/state.pageSize)){state.page++;renderGrid();window.scrollTo({top:$('grid').offsetTop-100,behavior:'smooth'});} });
         $('random-btn').addEventListener('click', () => { if (!state.filtered.length) return; const p=state.filtered[Math.floor(Math.random()*state.filtered.length)]; openDetails(p.id); });
         $('analyze-team').addEventListener('click',analyzeTeam);
+        $('share-team').addEventListener('click',shareTeam);
+        $('copy-team-link').addEventListener('click',copySharedTeamLink);
         $('clear-team').addEventListener('click',()=>{state.team=[];persistTeam();hideTeamAnalysis();renderTeam();teamStatus('Equipo vacío.');});
         $('team-panel').addEventListener('click',e=>{
           const remove=e.target.closest('[data-remove-team]');
@@ -1481,9 +1784,42 @@
         $('open-type-chart').addEventListener('click',openTypeChart);
         $('chart-close').addEventListener('click',closeTypeChart);
         $('chart-backdrop').addEventListener('click',e=>{if(e.target===$('chart-backdrop'))closeTypeChart();});
-        $('region-map-select').addEventListener('change',e=>renderRegionMap(e.target.value));
+        $('region-map-select').addEventListener('change',e=>{
+          const index=e.target.value; $('location-region').value=index; renderRegionMap(index); loadRegionLocations(index);
+        });
+        $('location-region').addEventListener('change',e=>{
+          const index=e.target.value; $('region-map-select').value=index; renderRegionMap(index); loadRegionLocations(index);
+        });
+        $('location-search').addEventListener('input',renderLocationList);
+        $('location-list').addEventListener('click',e=>{
+          const entry=e.target.closest('[data-location-url]');
+          if(entry) loadLocationDetails(entry.dataset.locationUrl);
+        });
+        $('location-detail').addEventListener('click',e=>{
+          const area=e.target.closest('[data-area-url]');
+          if(area) loadLocationArea(area.dataset.areaUrl,area);
+        });
+        $('load-moves').addEventListener('click',loadMoveIndex);
+        $('move-type').addEventListener('change',()=>{if(explorerState.moveIndex) filterMoveIndex();});
+        $('move-generation').addEventListener('change',()=>{if(explorerState.moveIndex) filterMoveIndex();});
+        $('move-search').addEventListener('input',()=>{
+          if(!explorerState.moveIndex) return;
+          clearTimeout(explorerState.moveTimer);
+          explorerState.moveTimer=setTimeout(filterMoveIndex,180);
+        });
+        $('move-results').addEventListener('click',e=>{
+          const move=e.target.closest('[data-move-url]');
+          if(move) showMoveDetails(move.dataset.moveUrl,move);
+        });
+        $('quiz-start').addEventListener('click',startQuiz);
+        $('quiz-next').addEventListener('click',nextQuizQuestion);
+        $('quiz-options').addEventListener('click',e=>{
+          const answer=e.target.closest('[data-quiz-id]');
+          if(answer) answerQuiz(Number(answer.dataset.quizId),answer);
+        });
         document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeTypeChart();closeModal();}});
         renderRegionMap($('region-map-select').value);
+        loadRegionLocations($('location-region').value);
         loadSpecies();
       }
       init();
