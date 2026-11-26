@@ -111,6 +111,9 @@
     .team-add { border: 0; background: #fff; width: 29px; height: 29px; border-radius: 50%; display: grid; place-items: center; color: #738098; font-size: 18px; line-height: 1; font-weight: 700; box-shadow: 0 2px 8px rgba(31,48,83,.06); }
     .team-add:hover { color: #526fe7; }
     .team-add.active { color: #fff; background: #526fe7; font-size: 14px; }
+    .team-add-count { position: absolute; right: -4px; bottom: -4px; min-width: 14px; height: 14px; padding: 0 3px; border: 1px solid #fff; border-radius: 99px; background: #25385f; color: #fff; font-size: 8px; line-height: 12px; text-align: center; }
+    .shiny-toggle { border: 0; background: #fff; width: 29px; height: 29px; border-radius: 50%; display: grid; place-items: center; color: #8993a5; font-size: 17px; line-height: 1; box-shadow: 0 2px 8px rgba(31,48,83,.06); }
+    .shiny-toggle:hover, .shiny-toggle.active { color: #a97400; background: #fff5d5; }
     .favorite-toggle:hover { color: #e2a530; }
     .favorite-toggle.active { color: #e2a530; }
     .card-image { position: absolute; z-index: 1; right: 13px; bottom: 15px; width: 132px; height: 132px; object-fit: contain; filter: drop-shadow(0 10px 9px rgba(50,60,80,.12)); transition: transform .22s; }
@@ -145,6 +148,8 @@
     .modal-genus { color: #818ca0; font-size: 12px; }
     .modal-types { margin-top: 14px; display: flex; gap: 6px; flex-wrap: wrap; }
     .modal-art { position: absolute; z-index: 1; right: 28px; bottom: 4px; width: min(265px, 43%); height: 250px; object-fit: contain; filter: drop-shadow(0 12px 10px rgba(44,55,77,.16)); }
+    .modal-shiny-toggle { position: absolute; z-index: 3; top: 15px; right: 58px; padding: 7px 10px; border: 1px solid #f0dfaa; border-radius: 999px; background: rgba(255,255,255,.92); color: #89630e; font-size: 10px; font-weight: 850; box-shadow: 0 3px 10px rgba(31,48,83,.07); }
+    .modal-shiny-toggle.active { background: #fff2c7; color: #805900; }
     .modal-body { padding: 21px 30px 30px; }
     .flavor { color: #647087; font-size: 12px; line-height: 1.65; margin: 0 0 19px; }
     .description-heading { margin: 0 0 8px; color: #7d889c; font-size: 10px; text-transform: uppercase; letter-spacing: .11em; }
@@ -188,6 +193,8 @@
     .alternate-types .type-pill { font-size: 8px; padding: 4px 6px; }
     .alternate-stats { margin-top: 6px; color: #758198; font-size: 8px; line-height: 1.45; }
     .alternate-ability { margin-top: 5px; color: #788399; font-size: 8px; line-height: 1.4; }
+    .alternate-shiny-toggle { margin-top: 7px; padding: 5px 7px; border: 1px solid #f0dfaa; border-radius: 7px; background: #fffaf0; color: #89630e; font-size: 8px; font-weight: 850; }
+    .alternate-shiny-toggle.active { background: #fff2c7; color: #805900; }
     .chart-backdrop { position: fixed; inset: 0; z-index: 20; display: none; align-items: center; justify-content: center; padding: 18px; background: rgba(20,29,47,.64); backdrop-filter: blur(5px); }
     .chart-backdrop.show { display: flex; }
     .chart-modal { width: min(1120px, 100%); max-height: min(850px, 94vh); overflow: hidden; border-radius: 19px; background: #fff; box-shadow: 0 25px 90px rgba(11,19,36,.35); }
@@ -411,7 +418,7 @@
       const TYPE_ITEMS = {normal:['Lazo rosa','pink-bow'],fire:['Carbón','charcoal'],water:['Agua mística','mystic-water'],electric:['Imán','magnet'],grass:['Semilla milagro','miracle-seed'],ice:['Antiderretir','never-melt-ice'],fighting:['Cinturón negro','black-belt'],poison:['Colmillo venenoso','poison-barb'],ground:['Arena fina','soft-sand'],flying:['Pico afilado','sharp-beak'],psychic:['Cuchara torcida','twisted-spoon'],bug:['Polvo plata','silver-powder'],rock:['Piedra dura','hard-stone'],ghost:['Hechizo','spell-tag'],dragon:['Colmillo dragón','dragon-fang'],dark:['Gafas de sol','black-glasses'],steel:['Revestimiento metálico','metal-coat']};
       const GEN9_VERSION_GROUPS = new Set(['scarlet-violet','legends-z-a']);
       const METHOD_LABELS = {'level':'Subir de nivel','item':'Objeto o piedra','trade':'Intercambio','special':'Método especial'};
-      const state = { species: [], filtered: [], page: 1, pageSize: PAGE_DEFAULT, type: 'all', typeIds: null, typeData: null, typePromise: null, favoritesOnly: false, favorites: new Set(), team: [], region: 'all', sort: 'number', evoMethod: 'all', minLevel: null, maxLevel: null, evoIndex: null, evoPromise: null, loading: false };
+      const state = { species: [], filtered: [], page: 1, pageSize: PAGE_DEFAULT, type: 'all', typeIds: null, typeData: null, typePromise: null, favoritesOnly: false, favorites: new Set(), team: [], shiny: new Set(), shinyForms: new Set(), region: 'all', sort: 'number', evoMethod: 'all', minLevel: null, maxLevel: null, evoIndex: null, evoPromise: null, loading: false };
       const $ = (id) => document.getElementById(id);
 
       const safeStorage = {
@@ -478,7 +485,61 @@
       function regionTitle() { return state.region === 'kanto' ? 'Pokémon de Kanto' : state.region === 'johto' ? 'Pokémon de Johto' : state.region === 'hoenn' ? 'Pokémon de Hoenn' : state.region === 'sinnoh' ? 'Pokémon de Sinnoh' : state.region === 'unova' ? 'Pokémon de Unova' : state.region === 'kalos' ? 'Pokémon de Kalos' : state.region === 'alola' ? 'Pokémon de Alola' : state.region === 'galar' ? 'Pokémon de Galar y Hisui' : state.region === 'paldea' ? 'Pokémon de Paldea' : 'Pokémon de Kanto a Paldea'; }
       function escapeHtml(value) { return String(value ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
       function fmtDex(id) { return '#' + String(id).padStart(3, '0'); }
-      function spriteUrl(id, artwork = true) { return artwork ? `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${id}.png` : `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`; }
+      function spriteUrl(id, artwork = true, shiny = false) {
+        const file = `${shiny ? 'shiny/' : ''}${id}.png`;
+        return artwork ? `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${file}` : `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${file}`;
+      }
+      function pokemonImageUrl(p, shiny = false) {
+        const data = p?.pokemonData?.sprites ? p.pokemonData : p;
+        const sprites = data?.sprites || {};
+        const artwork = sprites.other?.['official-artwork'];
+        const id = p?.id || data?.id;
+        return (shiny ? artwork?.front_shiny || sprites.front_shiny : artwork?.front_default || sprites.front_default) || spriteUrl(id, true, shiny);
+      }
+      function pokemonImageFallback(p, shiny = false) {
+        const data = p?.pokemonData?.sprites ? p.pokemonData : p;
+        const sprites = data?.sprites || {};
+        const id = p?.id || data?.id;
+        return (shiny ? sprites.front_shiny : sprites.front_default) || spriteUrl(id, false, shiny);
+      }
+      function setPokemonImage(img, p, shiny = false) {
+        if (!img || !p) return;
+        img.dataset.fallback = pokemonImageFallback(p, shiny);
+        img.src = pokemonImageUrl(p, shiny);
+      }
+      function teamCopies(id) { return state.team.reduce((count, memberId) => count + (memberId === Number(id) ? 1 : 0), 0); }
+      function updateShinyDisplay(id) {
+        const number = Number(id), p = byId(number), shiny = state.shiny.has(number);
+        if (!p) return;
+        document.querySelectorAll(`[data-shiny-art="${number}"]`).forEach(img => setPokemonImage(img, p, shiny));
+        document.querySelectorAll(`[data-shiny-toggle="${number}"]`).forEach(button => {
+          const label = `${shiny ? 'Mostrar versión normal de ' : 'Mostrar versión shiny de '}${speciesName(p)}`;
+          button.classList.toggle('active', shiny);
+          button.setAttribute('aria-pressed', String(shiny));
+          button.setAttribute('aria-label', label);
+          button.title = label;
+          button.textContent = button.classList.contains('modal-shiny-toggle') ? (shiny ? '↩ Normal' : '✨ Shiny') : (shiny ? '✦' : '✧');
+        });
+      }
+      function toggleShiny(id) {
+        const number = Number(id), p = byId(number);
+        if (!p) return;
+        if (state.shiny.has(number)) state.shiny.delete(number); else state.shiny.add(number);
+        updateShinyDisplay(number);
+        if (!p.pokemonData) ensurePokemonInfo(p).then(() => updateShinyDisplay(number)).catch(() => {});
+      }
+      function toggleFormShiny(id, button) {
+        const number = Number(id), card = button.closest('.alternate-form');
+        const image = card?.querySelector('.alternate-art');
+        if (!image) return;
+        if (state.shinyForms.has(number)) state.shinyForms.delete(number); else state.shinyForms.add(number);
+        const shiny = state.shinyForms.has(number);
+        image.dataset.fallback = shiny ? image.dataset.shinyFallback : image.dataset.normalFallback;
+        image.src = shiny ? image.dataset.shinySrc : image.dataset.normalSrc;
+        button.classList.toggle('active',shiny);
+        button.setAttribute('aria-pressed',String(shiny));
+        button.textContent = shiny ? '↩ Ver normal' : '✨ Ver shiny';
+      }
       function typePill(type) { return `<span class="type-pill pill-${escapeHtml(type)}">${escapeHtml(TYPE_NAMES[type] || titleName(type))}</span>`; }
       function iconStar(filled) { return `<svg width="14" height="14" viewBox="0 0 24 24" fill="${filled ? 'currentColor' : 'none'}" aria-hidden="true"><path d="m12 3 2.75 5.58 6.16.9-4.46 4.34 1.05 6.14L12 17.06l-5.5 2.9 1.05-6.14L3.1 9.48l6.16-.9L12 3Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg>`; }
 
@@ -600,9 +661,13 @@
         $('empty').classList.toggle('show', state.species.length > 0 && list.length === 0);
         $('grid').innerHTML = pageItems.map(p => {
           const favorite = state.favorites.has(p.id);
+          const shiny = state.shiny.has(p.id);
+          const copies = teamCopies(p.id);
+          const teamLabel = `Añadir ${speciesName(p)} al equipo${copies ? `. Ya hay ${copies}` : ''}`;
+          const shinyLabel = `${shiny ? 'Mostrar versión normal de ' : 'Mostrar versión shiny de '}${speciesName(p)}`;
           return `<article class="pokemon-card type-${escapeHtml(p.primaryType || 'normal')}" data-id="${p.id}" tabindex="0" role="button" aria-label="Abrir ficha de ${escapeHtml(speciesName(p))}, ${fmtDex(p.id)}">
-            <div class="card-top"><span class="dex-number">${dexRegion(p.id).toUpperCase()} ${fmtDex(p.id)}</span><span class="card-buttons"><button class="team-add${state.team.includes(p.id) ? ' active' : ''}" data-team-add="${p.id}" type="button" aria-label="${state.team.includes(p.id) ? 'Quitar del equipo' : 'Añadir al equipo'}" aria-pressed="${state.team.includes(p.id)}">${state.team.includes(p.id) ? '✓' : '+'}</button><button class="favorite-toggle${favorite ? ' active' : ''}" data-favorite="${p.id}" type="button" aria-label="${favorite ? 'Quitar de favoritos' : 'Añadir a favoritos'}" aria-pressed="${favorite}">${iconStar(favorite)}</button></span></div>
-            <span class="card-open-hint">Ver ficha ↗</span><img class="card-image" src="${spriteUrl(p.id)}" alt="" loading="lazy" data-fallback="${spriteUrl(p.id, false)}">
+            <div class="card-top"><span class="dex-number">${dexRegion(p.id).toUpperCase()} ${fmtDex(p.id)}</span><span class="card-buttons"><button class="team-add${copies ? ' active' : ''}" data-team-add="${p.id}" type="button" aria-label="${escapeHtml(teamLabel)}" title="${escapeHtml(teamLabel)}">+${copies ? `<span class="team-add-count" aria-hidden="true">${copies}</span>` : ''}</button><button class="shiny-toggle${shiny ? ' active' : ''}" data-shiny-toggle="${p.id}" type="button" aria-label="${escapeHtml(shinyLabel)}" aria-pressed="${shiny}" title="${escapeHtml(shinyLabel)}">${shiny ? '✦' : '✧'}</button><button class="favorite-toggle${favorite ? ' active' : ''}" data-favorite="${p.id}" type="button" aria-label="${favorite ? 'Quitar de favoritos' : 'Añadir a favoritos'}" aria-pressed="${favorite}">${iconStar(favorite)}</button></span></div>
+            <span class="card-open-hint">Ver ficha ↗</span><img class="card-image" data-shiny-art="${p.id}" src="${escapeHtml(pokemonImageUrl(p, shiny))}" alt="" loading="lazy" data-fallback="${escapeHtml(pokemonImageFallback(p, shiny))}">
             <div class="card-info"><h2 class="pokemon-name" data-name="${p.id}">${escapeHtml(speciesName(p))}</h2><div class="type-list" data-types="${p.id}">${p.types ? p.types.map(typePill).join('') : '<span class="type-placeholder">Cargando tipos…</span>'}</div><div class="form-indicators" data-form-indicators="${p.id}">${formIndicators(p)}</div></div>
           </article>`;
         }).join('');
@@ -618,6 +683,7 @@
           if (!card) continue;
           const nameBox=card.querySelector(`[data-name="${p.id}"]`); if(nameBox)nameBox.textContent=speciesName(p);
           const formBox=card.querySelector(`[data-form-indicators="${p.id}"]`); if(formBox)formBox.innerHTML=formIndicators(p);
+          updateShinyDisplay(p.id);
           if (!p.types) { const typeBox=card.querySelector(`[data-types="${p.id}"]`); if(typeBox)typeBox.innerHTML='<span class="type-placeholder">Tipos no disponibles</span>'; continue; }
           card.classList.remove(...TYPE_ORDER.map(t => `type-${t}`));
           card.classList.add(`type-${p.primaryType}`);
@@ -730,28 +796,35 @@
           const p = byId(state.team[index]);
           if (!p) return `<div class="team-slot"><div class="team-slot-empty">Espacio ${index+1}<br>Añade un Pokémon</div></div>`;
           const types = p.types?.map(type=>TYPE_NAMES[type]||titleName(type)).join(' · ') || 'Tipos al analizar';
-          return `<div class="team-slot filled"><img class="team-slot-art" src="${spriteUrl(p.id,false)}" alt="" loading="lazy"><div class="team-slot-copy"><div class="team-slot-number">${dexRegion(p.id).toUpperCase()} ${fmtDex(p.id)}</div><div class="team-slot-name">${escapeHtml(speciesName(p))}</div><div class="team-slot-types">${escapeHtml(types)}</div></div><button class="team-remove" type="button" data-remove-team="${p.id}" aria-label="Quitar a ${escapeHtml(speciesName(p))} del equipo">×</button></div>`;
+          const shiny = state.shiny.has(p.id);
+          return `<div class="team-slot filled"><img class="team-slot-art" data-shiny-art="${p.id}" src="${escapeHtml(pokemonImageUrl(p,shiny))}" data-fallback="${escapeHtml(pokemonImageFallback(p,shiny))}" alt="" loading="lazy"><div class="team-slot-copy"><div class="team-slot-number">${dexRegion(p.id).toUpperCase()} ${fmtDex(p.id)}</div><div class="team-slot-name">${escapeHtml(speciesName(p))}</div><div class="team-slot-types">${escapeHtml(types)}</div></div><button class="team-remove" type="button" data-remove-team="${index}" aria-label="Quitar a ${escapeHtml(speciesName(p))} del espacio ${index+1}">×</button></div>`;
         }).join('');
         $('team-slots').innerHTML = slots;
         $('grid').querySelectorAll('[data-team-add]').forEach(button => {
-          const inTeam = state.team.includes(Number(button.dataset.teamAdd));
-          button.classList.toggle('active',inTeam); button.setAttribute('aria-pressed',String(inTeam));
-          button.setAttribute('aria-label',inTeam?'Quitar del equipo':'Añadir al equipo'); button.textContent=inTeam?'✓':'+';
+          const id = Number(button.dataset.teamAdd), copies = teamCopies(id), p = byId(id);
+          const label = `Añadir ${speciesName(p)} al equipo${copies ? `. Ya hay ${copies}` : ''}`;
+          button.classList.toggle('active',copies>0); button.setAttribute('aria-label',label); button.title=label;
+          button.innerHTML=`+${copies ? `<span class="team-add-count" aria-hidden="true">${copies}</span>` : ''}`;
         });
       }
-      function toggleTeam(id) {
+      function addToTeam(id) {
         const number = Number(id);
-        if (state.team.includes(number)) {
-          state.team = state.team.filter(memberId=>memberId!==number); teamStatus('Pokémon quitado del equipo.');
-        } else {
-          if (state.team.length >= 6) { teamStatus('El equipo ya tiene seis Pokémon. Quita uno antes de añadir otro.'); return; }
-          state.team.push(number); teamStatus(`${speciesName(byId(number))} añadido al equipo.`);
-        }
+        if (state.team.length >= 6) { teamStatus('El equipo ya tiene seis Pokémon. Quita uno antes de añadir otro.'); return; }
+        state.team.push(number);
+        const copies = teamCopies(number);
+        teamStatus(`${speciesName(byId(number))} añadido al equipo${copies > 1 ? ` (${copies} copias)` : ''}.`);
         persistTeam(); hideTeamAnalysis(); renderTeam();
+      }
+      function removeTeamAt(index) {
+        if (!Number.isInteger(index) || index < 0 || index >= state.team.length) return;
+        const [removed] = state.team.splice(index,1);
+        persistTeam(); hideTeamAnalysis(); renderTeam();
+        teamStatus(`${speciesName(byId(removed))} quitado del equipo.`);
       }
       async function getTeamMembers() {
         const entries = state.team.map(id=>byId(id)).filter(Boolean);
-        const results = await mapLimit(entries,6,async p=>{
+        const uniqueEntries = [...new Map(entries.map(p=>[p.id,p])).values()];
+        const results = await mapLimit(uniqueEntries,6,async p=>{
           if (!p.pokemonData) p.pokemonData=await api(`${API}/pokemon/${p.id}/`);
           p.types=p.pokemonData.types.slice().sort((a,b)=>a.slot-b.slot).map(t=>t.type.name);
           p.primaryType=p.types[0]||'normal';
@@ -759,7 +832,7 @@
         });
         const failed = results.find(result=>result?.error);
         if (failed) throw failed.error;
-        return results;
+        return entries;
       }
       function itemIdeas(p) {
         const result=[];
@@ -787,7 +860,7 @@
         const suggestionsHtml=candidates.length?candidates.map(x=>`<div class="assistant-copy"><b>${escapeHtml(TYPE_NAMES[x.type])}</b> puede cubrir ${x.covers.map(type=>escapeHtml(TYPE_NAMES[type])).join(', ')}.</div>`).join(''):'Tu combinación de tipos ya cubre los principales huecos de ataque.';
         const membersHtml=members.map(p=>{
           const ideas=itemIdeas(p).map(item=>`<span class="assistant-pill">${escapeHtml(item[0])}${item[1].startsWith('recuperación')?' · '+escapeHtml(item[1]):` · ${escapeHtml(TYPE_NAMES[p.types.find(t=>TYPE_ITEMS[t]?.[0]===item[0])]||'tipo')}`}</span>`).join('');
-          return `<article class="assistant-member"><div class="assistant-member-head"><img class="assistant-member-art" src="${spriteUrl(p.id,false)}" alt="" loading="lazy"><span class="assistant-member-name">${escapeHtml(speciesName(p))} · ${p.types.map(t=>escapeHtml(TYPE_NAMES[t])).join(' / ')}</span><button class="move-button" type="button" data-suggest-moves="${p.id}">Sugerir movimientos</button></div><div class="assistant-pills" style="margin-top:6px">${ideas}</div><div class="move-list" id="move-list-${p.id}" aria-live="polite"></div></article>`;
+          return `<article class="assistant-member"><div class="assistant-member-head"><img class="assistant-member-art" data-shiny-art="${p.id}" src="${escapeHtml(pokemonImageUrl(p,state.shiny.has(p.id)))}" data-fallback="${escapeHtml(pokemonImageFallback(p,state.shiny.has(p.id)))}" alt="" loading="lazy"><span class="assistant-member-name">${escapeHtml(speciesName(p))} · ${p.types.map(t=>escapeHtml(TYPE_NAMES[t])).join(' / ')}</span><button class="move-button" type="button" data-suggest-moves="${p.id}">Sugerir movimientos</button></div><div class="assistant-pills" style="margin-top:6px">${ideas}</div><div class="move-list" aria-live="polite"></div></article>`;
         }).join('');
         return `<h3 class="assistant-heading">Asistente de equipo</h3><p class="assistant-intro">Análisis orientativo: cobertura ofensiva por tipos, debilidades compartidas y objetos potenciadores. La tabla de efectividad es la actual; los movimientos se buscan en Escarlata/Púrpura y Leyendas Pokémon: Z-A.</p><div class="assistant-grid"><div class="assistant-box"><h4>Cobertura ofensiva</h4><div class="assistant-copy">Cubres ${covered.length} de ${TYPE_ORDER.length} tipos con ataques STAB.</div>${coverageHtml}</div><div class="assistant-box"><h4>Debilidades compartidas</h4>${risksHtml}</div><div class="assistant-box"><h4>Tipos que podrías añadir</h4>${suggestionsHtml}</div></div><div class="assistant-member-list">${membersHtml}</div>`;
       }
@@ -835,7 +908,7 @@
         return selected;
       }
       async function suggestMoves(id,button) {
-        const target=$(`move-list-${id}`); const p=byId(id); if(!target||!p)return;
+        const target=button.closest('.assistant-member')?.querySelector('.move-list'); const p=byId(id); if(!target||!p)return;
         button.disabled=true; button.textContent='Buscando…'; target.innerHTML='<span class="move-note">Consultando movimientos disponibles en Gen IX…</span>';
         try {
           if(!p.pokemonData)p.pokemonData=await api(`${API}/pokemon/${p.id}/`);
@@ -892,11 +965,14 @@
       function alternateFormCard(form, p) {
         const data = form.data;
         const types = (data.types || []).slice().sort((a,b)=>a.slot-b.slot).map(t=>t.type.name);
-        const artwork = data.sprites?.other?.['official-artwork']?.front_default || data.sprites?.front_default || spriteUrl(data.id);
+        const imagePokemon = {id:data.id,pokemonData:data}, shiny = state.shinyForms.has(Number(data.id));
+        const normalArt = pokemonImageUrl(imagePokemon,false), shinyArt = pokemonImageUrl(imagePokemon,true);
+        const normalFallback = pokemonImageFallback(imagePokemon,false), shinyFallback = pokemonImageFallback(imagePokemon,true);
         const statLine = (data.stats || []).map(s=>`${STAT_NAMES[s.stat.name] || titleName(s.stat.name)} ${s.base_stat}`).join(' · ');
         const abilityLine = (data.abilities || []).map(a=>`${titleName(a.ability.name)}${a.is_hidden?' (oculta)':''}`).join(' · ');
         const kindLabel = form.kind === 'mega' ? 'Mega Evolución' : form.kind === 'gigantamax' ? 'Gigamax' : 'Forma regional';
-        return `<article class="alternate-form"><div class="alternate-art-wrap"><img class="alternate-art" src="${escapeHtml(artwork)}" alt="${escapeHtml(alternateLabel(form,p))}" loading="lazy" onerror="this.src='${spriteUrl(data.id,false)}';this.onerror=null"></div><div class="alternate-info"><div class="alternate-kind">${kindLabel}</div><div class="alternate-name">${escapeHtml(alternateLabel(form,p))}</div><div class="alternate-types">${types.map(typePill).join('')}</div><div class="alternate-stats">${escapeHtml(statLine)}</div><div class="alternate-ability">Habilidad: ${escapeHtml(abilityLine || 'Sin datos')}</div></div></article>`;
+        const shinyLabel = `Mostrar versión shiny de ${alternateLabel(form,p)}`;
+        return `<article class="alternate-form"><div class="alternate-art-wrap"><img class="alternate-art" src="${escapeHtml(shiny ? shinyArt : normalArt)}" data-fallback="${escapeHtml(shiny ? shinyFallback : normalFallback)}" data-normal-src="${escapeHtml(normalArt)}" data-shiny-src="${escapeHtml(shinyArt)}" data-normal-fallback="${escapeHtml(normalFallback)}" data-shiny-fallback="${escapeHtml(shinyFallback)}" alt="${escapeHtml(alternateLabel(form,p))}" loading="lazy"></div><div class="alternate-info"><div class="alternate-kind">${kindLabel}</div><div class="alternate-name">${escapeHtml(alternateLabel(form,p))}</div><div class="alternate-types">${types.map(typePill).join('')}</div><div class="alternate-stats">${escapeHtml(statLine)}</div><div class="alternate-ability">Habilidad: ${escapeHtml(abilityLine || 'Sin datos')}</div><button class="alternate-shiny-toggle${shiny ? ' active' : ''}" data-shiny-form-toggle="${data.id}" type="button" aria-label="${escapeHtml(shinyLabel)}" aria-pressed="${shiny}">${shiny ? '↩ Ver normal' : '✨ Ver shiny'}</button></div></article>`;
       }
       function alternateFormsHtml(forms, p) {
         const groups = [
@@ -979,9 +1055,11 @@
         const abilities = pokemon.abilities.map(a => `<span class="ability">${escapeHtml(titleName(a.ability.name))}${a.is_hidden ? ' · oculta' : ''}</span>`).join('');
         const rows = evolutionRows(chain, p.id);
         const familyHtml = rows.length ? rows.map(row => `<div class="evo-item"><span class="evo-name">${escapeHtml(row.fromName)} <small>${fmtDex(row.fromId)}</small></span><span class="evo-condition">${row.conditions.map(escapeHtml).join('<br>')}</span><span class="evo-name">${escapeHtml(row.toName)} <small>${fmtDex(row.toId)}</small></span></div>`).join('') : '<div class="evo-empty">Este Pokémon no evoluciona ni forma parte de una cadena de evolución registrada.</div>';
+        const shiny = state.shiny.has(p.id), shinyLabel = `${shiny ? 'Mostrar versión normal de ' : 'Mostrar versión shiny de '}${speciesName(p)}`;
+        const imagePokemon = {...p,pokemonData:pokemon};
         $('modal-content').innerHTML = `<div class="modal-hero type-${escapeHtml(types[0] || 'normal')}">
           <div class="modal-title-block"><div class="modal-number">${dexRegion(p.id).toUpperCase()} ${fmtDex(p.id)}</div><h2 class="modal-name" id="modal-name">${escapeHtml(speciesName(p))}</h2><div class="modal-genus">${escapeHtml(genus)}</div><div class="modal-types">${types.map(typePill).join('')}</div></div>
-          <img class="modal-art" src="${spriteUrl(p.id)}" alt="Ilustración de ${escapeHtml(speciesName(p))}" onerror="this.src='${spriteUrl(p.id,false)}';this.onerror=null">
+          <button class="modal-shiny-toggle${shiny ? ' active' : ''}" data-shiny-toggle="${p.id}" type="button" aria-label="${escapeHtml(shinyLabel)}" aria-pressed="${shiny}" title="${escapeHtml(shinyLabel)}">${shiny ? '↩ Normal' : '✨ Shiny'}</button><img class="modal-art" data-shiny-art="${p.id}" src="${escapeHtml(pokemonImageUrl(imagePokemon,shiny))}" data-fallback="${escapeHtml(pokemonImageFallback(imagePokemon,shiny))}" alt="Ilustración de ${escapeHtml(speciesName(p))}">
         </div>
         <div class="modal-body"><section class="detail-section" style="margin-top:0"><h3 class="description-heading">Cómo es y cómo actúa</h3>${descriptions.map((text,index)=>`<p class="description-copy"${index===0?' id="modal-description"':''}>${escapeHtml(text)}</p>`).join('')}<p class="description-note">Texto seleccionado de entradas de la Pokédex en español.</p></section>
           <div class="detail-metrics"><div class="metric"><div class="metric-label">Altura</div><div class="metric-value">${(pokemon.height/10).toFixed(1)} m</div></div><div class="metric"><div class="metric-label">Peso</div><div class="metric-value">${(pokemon.weight/10).toFixed(1)} kg</div></div><div class="metric"><div class="metric-label">Color</div><div class="metric-value">${escapeHtml(titleName(species.color?.name || '—'))}</div></div><div class="metric"><div class="metric-label">Hábitat</div><div class="metric-value">${escapeHtml(titleName(species.habitat?.name || 'Desconocido'))}</div></div></div>
@@ -1029,7 +1107,7 @@
 
       function init() {
         try { const saved = JSON.parse(safeStorage.get('dexkanto:favorites') || '[]'); state.favorites = new Set(saved.map(Number)); } catch { state.favorites = new Set(); }
-        try { const savedTeam = JSON.parse(safeStorage.get('dexkanto:team') || '[]'); state.team = [...new Set(savedTeam.map(Number).filter(id=>Number.isInteger(id)&&id>=1&&id<=DEX_COUNT))].slice(0,6); } catch { state.team = []; }
+        try { const savedTeam = JSON.parse(safeStorage.get('dexkanto:team') || '[]'); state.team = savedTeam.map(Number).filter(id=>Number.isInteger(id)&&id>=1&&id<=DEX_COUNT).slice(0,6); } catch { state.team = []; }
         $('type').innerHTML += TYPE_ORDER.map(t=>`<option value="${t}">${TYPE_NAMES[t]}</option>`).join('');
         updateFavoriteButton();
         renderTeam();
@@ -1066,19 +1144,27 @@
         $('clear-team').addEventListener('click',()=>{state.team=[];persistTeam();hideTeamAnalysis();renderTeam();teamStatus('Equipo vacío.');});
         $('team-panel').addEventListener('click',e=>{
           const remove=e.target.closest('[data-remove-team]');
-          if(remove){toggleTeam(Number(remove.dataset.removeTeam));return;}
+          if(remove){removeTeamAt(Number(remove.dataset.removeTeam));return;}
           const suggest=e.target.closest('[data-suggest-moves]');
           if(suggest)suggestMoves(Number(suggest.dataset.suggestMoves),suggest);
         });
         $('grid').addEventListener('click', e => {
           const fav = e.target.closest('[data-favorite]');
           if (fav) { e.stopPropagation(); const id=Number(fav.dataset.favorite); state.favorites.has(id)?state.favorites.delete(id):state.favorites.add(id); safeStorage.set('dexkanto:favorites',JSON.stringify([...state.favorites])); applyFilters(); return; }
+          const shiny=e.target.closest('[data-shiny-toggle]');
+          if (shiny) { e.stopPropagation(); toggleShiny(Number(shiny.dataset.shinyToggle)); return; }
           const teamButton=e.target.closest('[data-team-add]');
-          if (teamButton) { e.stopPropagation(); toggleTeam(Number(teamButton.dataset.teamAdd)); return; }
+          if (teamButton) { e.stopPropagation(); addToTeam(Number(teamButton.dataset.teamAdd)); return; }
           const card=e.target.closest('[data-id]'); if(card) openDetails(Number(card.dataset.id));
         });
+        $('modal-content').addEventListener('click',e=>{
+          const shiny=e.target.closest('[data-shiny-toggle]');
+          if(shiny)toggleShiny(Number(shiny.dataset.shinyToggle));
+          const formShiny=e.target.closest('[data-shiny-form-toggle]');
+          if(formShiny)toggleFormShiny(Number(formShiny.dataset.shinyFormToggle),formShiny);
+        });
         $('grid').addEventListener('keydown', e => { if((e.key==='Enter'||e.key===' ') && e.target.matches('.pokemon-card')){e.preventDefault();openDetails(Number(e.target.dataset.id));} });
-        $('grid').addEventListener('error', e => { if(e.target.matches('.card-image') && e.target.dataset.fallback && e.target.src!==e.target.dataset.fallback){e.target.src=e.target.dataset.fallback;} }, true);
+        document.addEventListener('error', e => { const img=e.target; if(img instanceof HTMLImageElement && img.dataset.fallback && img.src!==img.dataset.fallback){img.src=img.dataset.fallback;img.dataset.fallback='';} }, true);
         $('modal-close').addEventListener('click',closeModal);
         $('modal-backdrop').addEventListener('click',e=>{if(e.target===$('modal-backdrop'))closeModal();});
         $('open-type-chart').addEventListener('click',openTypeChart);
