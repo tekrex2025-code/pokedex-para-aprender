@@ -248,6 +248,20 @@
     .legend-chip { padding: 5px 8px; border-radius: 7px; background: #f1f3f7; }
     .chart-loading { padding: 36px 20px; text-align: center; color: #7d889c; font-size: 12px; }
     .chart-scroll { overflow: auto; max-height: min(66vh, 600px); padding: 14px 18px 22px; }
+    .region-map-panel { margin-top: 18px; padding: 20px; background: #fff; border: 1px solid var(--line); border-radius: 17px; box-shadow: 0 6px 24px rgba(31,48,83,.035); }
+    .region-map-head { display: flex; align-items: flex-start; justify-content: space-between; flex-wrap: wrap; gap: 12px; margin-bottom: 12px; }
+    .region-map-copy { min-width: 0; flex: 1 1 240px; }
+    .region-map-title { margin: 0; color: var(--ink); font-size: 15px; font-weight: 850; letter-spacing: -.025em; }
+    .region-map-subtitle { margin: 4px 0 0; color: var(--muted); font-size: 10px; line-height: 1.55; }
+    .region-map-select-wrap { display: grid; gap: 5px; flex: 0 1 245px; color: #7c879b; font-size: 9px; font-weight: 850; letter-spacing: .06em; text-transform: uppercase; }
+    .region-map-select { width: 100%; min-height: 39px; padding: 0 11px; border: 1px solid var(--line); border-radius: 10px; background: #fff; color: #39455c; font-size: 11px; font-weight: 750; letter-spacing: normal; text-transform: none; }
+    .region-map-caption { margin: 0 0 9px; color: #67738a; font-size: 10px; line-height: 1.5; }
+    .region-map-frame { display: grid; place-items: center; min-height: 210px; max-height: 70vh; overflow: auto; padding: 12px; border: 1px solid #e9edf3; border-radius: 13px; background: linear-gradient(135deg,#f7f8fb,#eef1f6); }
+    .region-map-image { display: block; max-width: 100%; max-height: 66vh; width: auto; height: auto; object-fit: contain; border-radius: 7px; }
+    .region-map-unavailable { max-width: 430px; padding: 18px; color: #727e93; font-size: 11px; line-height: 1.6; text-align: center; }
+    .region-map-footer { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 8px 14px; margin-top: 9px; color: #8994a7; font-size: 9px; line-height: 1.5; }
+    .region-map-source { color: #536fe2; font-weight: 800; text-decoration: none; }
+    .region-map-source:hover { text-decoration: underline; }
     .type-chart { border-collapse: separate; border-spacing: 3px; min-width: 940px; font-size: 9px; text-align: center; }
     .type-chart th { position: sticky; top: 0; z-index: 2; background: #fff; color: #657188; font-weight: 800; padding: 5px 4px; min-width: 38px; }
     .type-chart th:first-child { left: 0; z-index: 4; min-width: 104px; text-align: left; }
@@ -266,6 +280,7 @@
     @media (max-width: 900px) { .grid { grid-template-columns: repeat(3,minmax(0,1fr)); } .filter-grid,.advanced { grid-template-columns: repeat(2,minmax(0,1fr)); }.team-slots { grid-template-columns: repeat(3,minmax(0,1fr)); }.assistant-grid { grid-template-columns: 1fr 1fr; }.reveal-grid { grid-template-columns: 1fr; } }
     @media (max-width: 620px) { .shell { width: min(100% - 24px, 500px); }.topbar { height: 66px; }.top-meta .tag { display:none; }.chart-trigger { font-size:10px; padding:7px 9px; }.region-chip { padding:7px 9px; font-size:10px; }main { padding-top: 10px; }.hero { padding: 26px 20px 23px; border-radius: 18px; }.hero-bottom { align-items: stretch; }.search-wrap { width: 100%; }.hero-btn { flex: 1; }.hero-stats { gap: 14px; flex-wrap: wrap; }.reveal-panel { padding: 14px; }.reveal-head { flex-direction: column; }.reveal-source { align-self: flex-start; }.reveal-card { grid-template-columns: minmax(0,1fr) 76px; padding: 11px; }.reveal-art { width: 76px; height: 76px; }.filters { padding: 16px; }.filter-grid,.advanced { grid-template-columns: 1fr 1fr; gap: 10px; }.grid { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 10px; }.pokemon-card { height: 202px; }.card-image { width: 112px; height: 112px; right: 6px; bottom: 17px; }.card-info { left: 12px; right: 57px; bottom: 15px; }.pokemon-name { font-size: 14px; }.type-pill { padding: 4px 6px; font-size: 8px; }.card-top { padding: 12px 11px 0; }.results-bar { align-items: flex-start; }.results-title { font-size: 14px; }.sort-wrap { padding-top: 2px; }.team-panel { padding: 14px; }.team-head { align-items: flex-start; flex-direction: column; }.team-actions { width: 100%; justify-content: space-between; }.team-slots { grid-template-columns: repeat(2,minmax(0,1fr)); }.team-slot { min-height: 65px; }.team-slot-art { width: 42px; height: 42px; }.assistant-grid { grid-template-columns: 1fr; }.move-list { grid-template-columns: 1fr 1fr; }.modal-backdrop { padding: 10px; }.modal { max-height: 95vh; border-radius: 17px; }.modal-hero { min-height: 210px; padding: 23px 18px; }.modal-hero::after { width: 205px; height: 205px; right: 6px; top: 8px; }.modal-title-block { max-width: 62%; padding-top: 17px; }.modal-art { width: 47%; height: 205px; right: 2px; }.modal-body { padding: 17px 18px 23px; }.detail-metrics { grid-template-columns: repeat(2,1fr); }.evo-item { grid-template-columns: 1fr auto 1fr; gap: 5px; padding: 8px; }.evo-condition { font-size: 9px; }.alternate-forms { grid-template-columns: 1fr; }.chart-backdrop { padding: 8px; }.chart-modal { max-height: 96vh; border-radius: 14px; }.chart-head { padding: 17px 16px 12px; }.chart-head h2 { font-size: 17px; }.chart-legend { padding: 10px 16px 0; }.chart-scroll { max-height: 68vh; padding: 10px 8px 18px; }footer { align-items: flex-start; flex-direction: column; gap: 8px; } }
     @media (max-width: 370px) { .filter-grid,.advanced { grid-template-columns: 1fr; }.pokemon-card { height: 188px; }.card-image { width: 100px; height: 100px; }.pokemon-name { font-size: 13px; } }
+    @media (max-width: 620px) { .region-map-panel { padding: 14px; } .region-map-head { display: grid; grid-template-columns: 1fr; } .region-map-select-wrap { width: 100%; } .region-map-frame { min-height: 170px; max-height: 62vh; padding: 8px; } .region-map-image { max-height: 58vh; } }
   </style>
 </head>
 <body>
@@ -305,6 +320,18 @@
         <div class="team-slots" id="team-slots" aria-live="polite"></div>
         <div class="team-status" id="team-status" role="status"></div>
         <section class="team-assistant" id="team-assistant" hidden aria-live="polite"></section>
+      </section>
+
+      <section class="region-map-panel" aria-labelledby="region-maps-title">
+        <div class="region-map-head">
+          <div class="region-map-copy"><h2 class="region-map-title" id="region-maps-title">Mapas de las regiones</h2><p class="region-map-subtitle">Explora la geografía de las regiones principales y de Hisui, la antigua Sinnoh.</p></div>
+          <div class="region-map-select-wrap"><label for="region-map-select">ELEGIR REGIÓN</label><select class="region-map-select" id="region-map-select">
+            <option value="0">Kanto · Generación I</option><option value="1">Johto · Generación II</option><option value="2">Hoenn · Generación III</option><option value="3">Sinnoh · Generación IV</option><option value="4">Unova · Generación V</option><option value="5">Kalos · Generación VI</option><option value="6">Alola · Generación VII</option><option value="7">Galar · Generación VIII</option><option value="8">Hisui · antigua Sinnoh</option><option value="9">Paldea · Generación IX</option>
+          </select></div>
+        </div>
+        <p class="region-map-caption" id="region-map-caption">Kanto · Mapa de la región de los juegos originales.</p>
+        <div class="region-map-frame"><img class="region-map-image" id="region-map-image" src="https://archives.bulbagarden.net/media/upload/7/78/Kanto.png" alt="Mapa de Kanto" loading="lazy" referrerpolicy="no-referrer"><div class="region-map-unavailable" id="region-map-unavailable" hidden>No se pudo cargar este mapa. Comprueba tu conexión o abre la imagen original desde el enlace.</div></div>
+        <div class="region-map-footer"><span>Las imágenes se cargan desde Bulbagarden Archives.</span><a class="region-map-source" id="region-map-source" href="https://archives.bulbagarden.net/wiki/File:Kanto.png" target="_blank" rel="noreferrer">Ver mapa original de Kanto ↗</a></div>
       </section>
 
       <section class="filters" aria-label="Filtros de la Pokédex">
@@ -415,7 +442,18 @@
       const TYPE_ORDER = ['normal','fire','water','electric','grass','ice','fighting','poison','ground','flying','psychic','bug','rock','ghost','dragon','dark','steel','fairy'];
       const STAT_NAMES = {'hp':'PS','attack':'Ataque','defense':'Defensa','special-attack':'At. Esp.','special-defense':'Def. Esp.','speed':'Velocidad'};
       const ITEM_NAMES = {'fire-stone':'Piedra fuego','water-stone':'Piedra agua','thunder-stone':'Piedra trueno','leaf-stone':'Piedra hoja','moon-stone':'Piedra lunar','sun-stone':'Piedra solar','dawn-stone':'Piedra alba','dusk-stone':'Piedra noche','shiny-stone':'Piedra día','ice-stone':'Piedra hielo','kings-rock':'Roca del rey','metal-coat':'Revestimiento metálico','dragon-scale':'Escama dragón','upgrade':'Mejora','deep-sea-tooth':'Diente marino','deep-sea-scale':'Escama marina','prism-scale':'Escama bella','razor-fang':'Colmillo agudo','razor-claw':'Garra afilada','electirizer':'Electrizador','magmarizer':'Magmatizador','dubious-disc':'Disco extraño','protector':'Protector','reaper-cloth':'Tela terrible','oval-stone':'Piedra oval','whipped-dream':'Dulce de nata','sachet':'Saquito fragante'};
-      const TYPE_ITEMS = {normal:['Lazo rosa','pink-bow'],fire:['Carbón','charcoal'],water:['Agua mística','mystic-water'],electric:['Imán','magnet'],grass:['Semilla milagro','miracle-seed'],ice:['Antiderretir','never-melt-ice'],fighting:['Cinturón negro','black-belt'],poison:['Colmillo venenoso','poison-barb'],ground:['Arena fina','soft-sand'],flying:['Pico afilado','sharp-beak'],psychic:['Cuchara torcida','twisted-spoon'],bug:['Polvo plata','silver-powder'],rock:['Piedra dura','hard-stone'],ghost:['Hechizo','spell-tag'],dragon:['Colmillo dragón','dragon-fang'],dark:['Gafas de sol','black-glasses'],steel:['Revestimiento metálico','metal-coat']};
+      const REGION_MAPS = [
+        {name:'Kanto',caption:'Kanto · Mapa de la región de los juegos originales.',image:'https://archives.bulbagarden.net/media/upload/7/78/Kanto.png',source:'https://archives.bulbagarden.net/wiki/File:Kanto.png'},
+        {name:'Johto',caption:'Johto · Mapa de la región de Oro, Plata y Cristal.',image:'https://archives.bulbagarden.net/media/upload/0/04/Johto.png',source:'https://archives.bulbagarden.net/wiki/File:Johto.png'},
+        {name:'Hoenn',caption:'Hoenn · Mapa de la región en Rubí Omega y Zafiro Alfa.',image:'https://archives.bulbagarden.net/media/upload/8/80/Hoenn_ORAS_Map.png',source:'https://archives.bulbagarden.net/wiki/File:Hoenn_ORAS_Map.png'},
+        {name:'Sinnoh',caption:'Sinnoh · Mapa de la región de Diamante, Perla y Platino.',image:'https://archives.bulbagarden.net/media/upload/a/ac/Sinnoh.png',source:'https://archives.bulbagarden.net/wiki/File:Sinnoh.png'},
+        {name:'Unova',caption:'Unova · Mapa de la región en Negro 2 y Blanco 2.',image:'https://archives.bulbagarden.net/media/upload/a/a0/Unova_2.png',source:'https://archives.bulbagarden.net/wiki/File:Unova_2.png'},
+        {name:'Kalos',caption:'Kalos · Mapa de la región de Pokémon X y Pokémon Y.',image:'https://archives.bulbagarden.net/media/upload/a/a9/Kalos.png',source:'https://archives.bulbagarden.net/wiki/File:Kalos.png'},
+        {name:'Alola',caption:'Alola · Archipiélago de Melemele, Akala, Ula’ula y Poni.',image:'https://archives.bulbagarden.net/media/upload/6/6c/Alola.png',source:'https://archives.bulbagarden.net/wiki/File:Alola.png'},
+        {name:'Galar',caption:'Galar · Mapa de la región de Pokémon Espada y Pokémon Escudo.',image:'https://archives.bulbagarden.net/media/upload/c/ce/Galar_artwork.png',source:'https://archives.bulbagarden.net/wiki/File:Galar_artwork.png'},
+        {name:'Hisui',caption:'Hisui · La antigua Sinnoh de Leyendas Pokémon: Arceus.',image:'https://archives.bulbagarden.net/media/upload/5/5b/Hisui.png',source:'https://archives.bulbagarden.net/wiki/File:Hisui.png'},
+        {name:'Paldea',caption:'Paldea · Mapa de la región de Pokémon Escarlata y Púrpura.',image:'https://archives.bulbagarden.net/media/upload/2/2a/Paldea.png',source:'https://archives.bulbagarden.net/wiki/File:Paldea.png'}
+      ];      const TYPE_ITEMS = {normal:['Lazo rosa','pink-bow'],fire:['Carbón','charcoal'],water:['Agua mística','mystic-water'],electric:['Imán','magnet'],grass:['Semilla milagro','miracle-seed'],ice:['Antiderretir','never-melt-ice'],fighting:['Cinturón negro','black-belt'],poison:['Colmillo venenoso','poison-barb'],ground:['Arena fina','soft-sand'],flying:['Pico afilado','sharp-beak'],psychic:['Cuchara torcida','twisted-spoon'],bug:['Polvo plata','silver-powder'],rock:['Piedra dura','hard-stone'],ghost:['Hechizo','spell-tag'],dragon:['Colmillo dragón','dragon-fang'],dark:['Gafas de sol','black-glasses'],steel:['Revestimiento metálico','metal-coat']};
       const GEN9_VERSION_GROUPS = new Set(['scarlet-violet','legends-z-a']);
       const METHOD_LABELS = {'level':'Subir de nivel','item':'Objeto o piedra','trade':'Intercambio','special':'Método especial'};
       const state = { species: [], filtered: [], page: 1, pageSize: PAGE_DEFAULT, type: 'all', typeIds: null, typeData: null, typePromise: null, favoritesOnly: false, favorites: new Set(), team: [], shiny: new Set(), shinyForms: new Set(), region: 'all', sort: 'number', evoMethod: 'all', minLevel: null, maxLevel: null, evoIndex: null, evoPromise: null, loading: false };
@@ -787,7 +825,24 @@
         } catch (error) { $('chart-loading').hidden = false; $('chart-loading').textContent = 'No se pudo cargar la tabla. Revisa tu conexión e inténtalo de nuevo.'; }
       }
       function closeTypeChart() { $('chart-backdrop').classList.remove('show'); if (!$('modal-backdrop').classList.contains('show')) document.body.style.overflow = ''; }
-      function persistTeam() { safeStorage.set('dexkanto:team', JSON.stringify(state.team)); }
+      function renderRegionMap(index) {
+        const map = REGION_MAPS[Number(index)] || REGION_MAPS[0];
+        const image = $('region-map-image');
+        $('region-map-caption').textContent = map.caption;
+        $('region-map-source').href = map.source;
+        $('region-map-source').textContent = 'Ver mapa original de '+map.name+' ↗';
+        image.alt = 'Mapa de '+map.name;
+        $('region-map-unavailable').hidden = true;
+        image.hidden = true;
+        image.onload = () => { image.hidden = false; $('region-map-unavailable').hidden = true; };
+        image.onerror = () => { image.hidden = true; $('region-map-unavailable').hidden = false; };
+        if (image.dataset.mapUrl !== map.image) {
+          image.dataset.mapUrl = map.image;
+          image.src = map.image;
+        } else if (image.complete && image.naturalWidth > 0) {
+          image.hidden = false;
+        }
+      }      function persistTeam() { safeStorage.set('dexkanto:team', JSON.stringify(state.team)); }
       function hideTeamAnalysis() { $('team-assistant').hidden = true; $('team-assistant').innerHTML = ''; }
       function teamStatus(message = '') { $('team-status').textContent = message; }
       function renderTeam() {
@@ -931,34 +986,57 @@
       function alternateKind(name) {
         const slug = String(name || '').toLowerCase();
         if (/(^|-)mega(-|$)/.test(slug)) return 'mega';
-        if (/(^|-)(alola|galar|hisui|paldea)(-|$)/.test(slug)) return 'regional';
-        if (/-white-striped$/.test(slug)) return 'regional';
+        if (/(^|-)(alola|galar|hisui|paldea)(-|$)/.test(slug) || /-white-striped$/.test(slug)) return 'regional';
         if (/(^|-)gmax$/.test(slug)) return 'gigantamax';
-        return null;
+        return 'variant';
       }
       function formIndicators(p) {
-        const kinds = new Set((p.speciesData?.varieties || []).filter(v=>!v.is_default).map(v=>alternateKind(v.pokemon.name)).filter(Boolean));
-        const labels = [{kind:'mega',label:'Mega'},{kind:'regional',label:'Regional'},{kind:'gigantamax',label:'Gigamax'}];
-        return labels.filter(item=>kinds.has(item.kind)).map(item=>`<span class="form-indicator">${item.label}</span>`).join('');
+        const kinds = new Set((p.speciesData?.varieties || []).filter(v=>!v.is_default).map(v=>alternateKind(v.pokemon.name)));
+        const labels = [{kind:'mega',label:'Mega'},{kind:'regional',label:'Regional'},{kind:'gigantamax',label:'Gigamax'},{kind:'variant',label:'Formas'}];
+        return labels.filter(item=>kinds.has(item.kind)).map(item=>'<span class="form-indicator">'+item.label+'</span>').join('');
       }
       function alternateLabel(form, p) {
-        const slug = form.variety.pokemon.name.toLowerCase();
+        const slug = String(form.variety.pokemon.name || '').toLowerCase();
         if (form.kind === 'mega') {
           const mega = slug.match(/-mega(?:-([xyz]))?$/);
-          return `Mega ${speciesName(p)}${mega?.[1] ? ` ${mega[1].toUpperCase()}` : ''}`;
+          return 'Mega '+speciesName(p)+(mega?.[1] ? ' '+mega[1].toUpperCase() : '');
         }
-        if (form.kind === 'gigantamax') return `${speciesName(p)} Gigamax`;
+        if (form.kind === 'gigantamax') return speciesName(p)+' Gigamax';
         if (/-white-striped$/.test(slug)) return 'Forma Raya Blanca (Hisui)';
         const region = slug.match(/-(alola|galar|hisui|paldea)(?:-|$)/)?.[1];
-        const regionLabels = {alola:'Alola',galar:'Galar',hisui:'Hisui',paldea:'Paldea'};
-        const tail = region ? slug.slice(slug.indexOf(`-${region}`) + region.length + 2).replace(/-breed$/,'') : '';
-        const subtype = ({combat:'Combate',blaze:'Fuego',aqua:'Agua'})[tail];
-        return `Forma de ${regionLabels[region] || titleName(region)}${subtype ? ` · ${subtype}` : ''}`;
+        if (region) {
+          const regionLabels = {alola:'Alola',galar:'Galar',hisui:'Hisui',paldea:'Paldea'};
+          const tail = slug.slice(slug.indexOf('-'+region) + region.length + 2).replace(/-breed$/,'');
+          const subtype = ({combat:'Combate',blaze:'Fuego',aqua:'Agua'})[tail];
+          return 'Forma de '+regionLabels[region]+(subtype ? ' · '+subtype : '');
+        }
+        const speciesSlug = String(p?.name || '').toLowerCase();
+        const suffix = slug.startsWith(speciesSlug+'-') ? slug.slice(speciesSlug.length+1) : slug;
+        const formNames = {
+          'midday':'Diurna','midnight':'Nocturna','dusk':'Crepuscular',
+          'sunny':'Soleada','rainy':'Lluviosa','snowy':'Nevada',
+          'attack':'Ataque','defense':'Defensa','speed':'Velocidad',
+          'altered':'Modificada','origin':'Origen','incarnate':'Avatar','therian':'Tótem',
+          'aria':'Aria','pirouette':'Danza','blade':'Filo','shield':'Escudo',
+          'single-strike':'Golpe Brusco','rapid-strike':'Golpe Fluido',
+          '10-percent':'10 %','50-percent':'50 %','complete':'Completa',
+          'solo':'Individual','school':'Banco','baile':'Baile','pom-pom':'Animadora',
+          'pau':'Hula','sensu':'Apasionada','family-of-four':'Familia de cuatro',
+          'family-of-three':'Familia de tres','two-segment':'Dos segmentos','three-segment':'Tres segmentos',
+          'red-striped':'Raya roja','blue-striped':'Raya azul','white-striped':'Raya blanca'
+        };
+        return 'Forma '+(formNames[suffix] || titleName(suffix));
       }
       async function loadAlternateForms(p, species) {
         if (p.alternateForms) return p.alternateForms;
-        const candidates = (species.varieties || []).filter(v => !v.is_default).map(variety => ({variety,kind:alternateKind(variety.pokemon.name)})).filter(v => v.kind);
-        const results = await mapLimit(candidates, 6, async candidate => ({...candidate, data:await api(candidate.variety.pokemon.url)}));
+        const varieties = species.varieties || [];
+        const candidates = varieties.filter(v => !v.is_default).map(variety => ({variety,kind:alternateKind(variety.pokemon.name)}));
+        if (candidates.some(form => form.kind === 'variant')) {
+          const defaultVariety = varieties.find(v => v.is_default);
+          if (defaultVariety) candidates.unshift({variety:defaultVariety,kind:'variant',isDefault:true});
+        }
+        const unique = [...new Map(candidates.map(form=>[form.variety.pokemon.name,form])).values()];
+        const results = await mapLimit(unique, 6, async candidate => ({...candidate, data:await api(candidate.variety.pokemon.url)}));
         p.alternateForms = results.filter(result => result && !result.error && result.data);
         return p.alternateForms;
       }
@@ -968,21 +1046,23 @@
         const imagePokemon = {id:data.id,pokemonData:data}, shiny = state.shinyForms.has(Number(data.id));
         const normalArt = pokemonImageUrl(imagePokemon,false), shinyArt = pokemonImageUrl(imagePokemon,true);
         const normalFallback = pokemonImageFallback(imagePokemon,false), shinyFallback = pokemonImageFallback(imagePokemon,true);
-        const statLine = (data.stats || []).map(s=>`${STAT_NAMES[s.stat.name] || titleName(s.stat.name)} ${s.base_stat}`).join(' · ');
-        const abilityLine = (data.abilities || []).map(a=>`${titleName(a.ability.name)}${a.is_hidden?' (oculta)':''}`).join(' · ');
-        const kindLabel = form.kind === 'mega' ? 'Mega Evolución' : form.kind === 'gigantamax' ? 'Gigamax' : 'Forma regional';
-        const shinyLabel = `Mostrar versión shiny de ${alternateLabel(form,p)}`;
-        return `<article class="alternate-form"><div class="alternate-art-wrap"><img class="alternate-art" src="${escapeHtml(shiny ? shinyArt : normalArt)}" data-fallback="${escapeHtml(shiny ? shinyFallback : normalFallback)}" data-normal-src="${escapeHtml(normalArt)}" data-shiny-src="${escapeHtml(shinyArt)}" data-normal-fallback="${escapeHtml(normalFallback)}" data-shiny-fallback="${escapeHtml(shinyFallback)}" alt="${escapeHtml(alternateLabel(form,p))}" loading="lazy"></div><div class="alternate-info"><div class="alternate-kind">${kindLabel}</div><div class="alternate-name">${escapeHtml(alternateLabel(form,p))}</div><div class="alternate-types">${types.map(typePill).join('')}</div><div class="alternate-stats">${escapeHtml(statLine)}</div><div class="alternate-ability">Habilidad: ${escapeHtml(abilityLine || 'Sin datos')}</div><button class="alternate-shiny-toggle${shiny ? ' active' : ''}" data-shiny-form-toggle="${data.id}" type="button" aria-label="${escapeHtml(shinyLabel)}" aria-pressed="${shiny}">${shiny ? '↩ Ver normal' : '✨ Ver shiny'}</button></div></article>`;
+        const statLine = (data.stats || []).map(s=>(STAT_NAMES[s.stat.name] || titleName(s.stat.name))+' '+s.base_stat).join(' · ');
+        const abilityLine = (data.abilities || []).map(a=>titleName(a.ability.name)+(a.is_hidden?' (oculta)':'')).join(' · ');
+        const kindLabels = {mega:'Mega Evolución',regional:'Forma regional',gigantamax:'Gigamax',variant:'Forma evolutiva o alternativa'};
+        const label = alternateLabel(form,p);
+        const shinyLabel = 'Mostrar versión shiny de '+label;
+        return '<article class="alternate-form"><div class="alternate-art-wrap"><img class="alternate-art" src="'+escapeHtml(shiny ? shinyArt : normalArt)+'" data-fallback="'+escapeHtml(shiny ? shinyFallback : normalFallback)+'" data-normal-src="'+escapeHtml(normalArt)+'" data-shiny-src="'+escapeHtml(shinyArt)+'" data-normal-fallback="'+escapeHtml(normalFallback)+'" data-shiny-fallback="'+escapeHtml(shinyFallback)+'" alt="'+escapeHtml(label)+'" loading="lazy"></div><div class="alternate-info"><div class="alternate-kind">'+(kindLabels[form.kind] || 'Forma alternativa')+'</div><div class="alternate-name">'+escapeHtml(label)+'</div><div class="alternate-types">'+types.map(typePill).join('')+'</div><div class="alternate-stats">'+escapeHtml(statLine)+'</div><div class="alternate-ability">Habilidad: '+escapeHtml(abilityLine || 'Sin datos')+'</div><button class="alternate-shiny-toggle'+(shiny ? ' active' : '')+'" data-shiny-form-toggle="'+data.id+'" type="button" aria-label="'+escapeHtml(shinyLabel)+'" aria-pressed="'+shiny+'">'+(shiny ? '↩ Ver normal' : '✨ Ver shiny')+'</button></div></article>';
       }
       function alternateFormsHtml(forms, p) {
         const groups = [
           {kind:'mega',title:'Mega Evoluciones'},
           {kind:'regional',title:'Formas regionales'},
-          {kind:'gigantamax',title:'Formas Gigamax'}
+          {kind:'gigantamax',title:'Formas Gigamax'},
+          {kind:'variant',title:'Formas evolutivas y variantes'}
         ];
         return groups.map(group => {
           const matched = forms.filter(form => form.kind === group.kind);
-          return matched.length ? `<section class="detail-section"><h3>${group.title}</h3><div class="alternate-forms">${matched.map(form=>alternateFormCard(form,p)).join('')}</div></section>` : '';
+          return matched.length ? '<section class="detail-section"><h3>'+group.title+'</h3><div class="alternate-forms">'+matched.map(form=>alternateFormCard(form,p)).join('')+'</div></section>' : '';
         }).join('');
       }
       function displayEvolutionCondition(c) {
@@ -1170,7 +1250,9 @@
         $('open-type-chart').addEventListener('click',openTypeChart);
         $('chart-close').addEventListener('click',closeTypeChart);
         $('chart-backdrop').addEventListener('click',e=>{if(e.target===$('chart-backdrop'))closeTypeChart();});
+        $('region-map-select').addEventListener('change',e=>renderRegionMap(e.target.value));
         document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeTypeChart();closeModal();}});
+        renderRegionMap($('region-map-select').value);
         loadSpecies();
       }
       init();
