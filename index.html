@@ -1380,7 +1380,7 @@
         const result=calculatePersonalityResult(), p=byId(result.match.id);
         if(!p) return;
         personalityState.resultId=p.id;
-        const explanation='Tu perfil destaca por '+result.primary.axis.label.toLocaleLowerCase('es')+' y '+result.secondary.axis.label.toLocaleLowerCase('es')+'. '+result.primary.axis.description+' '+result.secondary.axis.description;
+        const explanation='Tu perfil destaca por '+result.primary.label.toLocaleLowerCase('es')+' y '+result.secondary.label.toLocaleLowerCase('es')+'. '+result.primary.description+' '+result.secondary.description;
         $('personality-question').hidden=true;
         $('personality-result').hidden=false;
         $('personality-count').textContent='¡Completaste las 50 preguntas!';
