@@ -414,7 +414,7 @@
     .section-intro-art { position: relative; z-index: 1; flex: 0 0 auto; display: grid; width: 58px; height: 58px; place-items: center; border: 1px solid #e6eafa; border-radius: 17px; background: linear-gradient(145deg,#fff,#f0f3ff); color: #536de0; font-size: 28px; box-shadow: 0 7px 18px rgba(62,82,125,.09); }
     .view-subtitle { margin: 20px 3px 10px; color: #36435e; font-size: 15px; font-weight: 900; letter-spacing: -.02em; }
     .view-help { margin: -5px 3px 15px; color: var(--muted); font-size: 11px; line-height: 1.55; }
-    @media (max-width: 620px) { .main-nav { top: 4px; margin-bottom: 12px; padding: 5px; gap: 4px; border-radius: 13px; }.section-tab { flex: 1 0 112px; min-height: 43px; gap: 6px; padding: 6px 9px; font-size: 11px; }.section-tab-icon { width: 23px; height: 23px; font-size: 12px; }.section-intro { padding: 17px; border-radius: 15px; }.section-intro-art { width: 48px; height: 48px; border-radius: 14px; font-size: 23px; }.view-subtitle { margin-top: 16px; } }
+    @media (max-width: 620px) { .main-nav { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); top: 4px; margin-bottom: 12px; padding: 5px; gap: 4px; overflow: visible; border-radius: 13px; }.section-tab { min-width: 0; flex: initial; flex-direction: column; min-height: 52px; gap: 3px; padding: 5px 2px; font-size: 9px; white-space: nowrap; }.section-tab-icon { width: 23px; height: 23px; font-size: 12px; }.section-intro { padding: 17px; border-radius: 15px; }.section-intro-art { width: 48px; height: 48px; border-radius: 14px; font-size: 23px; }.view-subtitle { margin-top: 16px; } }
   </style>
 </head>
 <body>
@@ -424,10 +424,10 @@
       <div class="top-meta"><span class="tag">POKÉDEX DIGITAL</span><button class="chart-trigger" id="open-type-chart" type="button">⚔ Tabla de tipos</button><span class="region-chip"><i class="region-dot"></i> Gen. I—IX</span></div>
     </header>
     <nav class="main-nav" id="main-nav" role="tablist" aria-label="Apartados principales">
-      <button class="section-tab" id="tab-explore" type="button" role="tab" aria-selected="true" aria-controls="view-explore" data-section-tab="explore"><span class="section-tab-icon" aria-hidden="true">🔎</span>Pokédex</button>
-      <button class="section-tab" id="tab-team" type="button" role="tab" aria-selected="false" aria-controls="view-team" data-section-tab="team" tabindex="-1"><span class="section-tab-icon" aria-hidden="true">⚔️</span>Mi equipo</button>
-      <button class="section-tab" id="tab-regions" type="button" role="tab" aria-selected="false" aria-controls="view-regions" data-section-tab="regions" tabindex="-1"><span class="section-tab-icon" aria-hidden="true">🗺️</span>Regiones</button>
-      <button class="section-tab" id="tab-learn" type="button" role="tab" aria-selected="false" aria-controls="view-learn" data-section-tab="learn" tabindex="-1"><span class="section-tab-icon" aria-hidden="true">✨</span>Aprende y juega</button>
+      <button class="section-tab" id="tab-explore" type="button" role="tab" aria-label="Pokédex" aria-selected="true" aria-controls="view-explore" data-section-tab="explore"><span class="section-tab-icon" aria-hidden="true">🔎</span>Pokédex</button>
+      <button class="section-tab" id="tab-team" type="button" role="tab" aria-label="Mi equipo" aria-selected="false" aria-controls="view-team" data-section-tab="team" tabindex="-1"><span class="section-tab-icon" aria-hidden="true">⚔️</span>Equipo</button>
+      <button class="section-tab" id="tab-regions" type="button" role="tab" aria-label="Regiones" aria-selected="false" aria-controls="view-regions" data-section-tab="regions" tabindex="-1"><span class="section-tab-icon" aria-hidden="true">🗺️</span>Regiones</button>
+      <button class="section-tab" id="tab-learn" type="button" role="tab" aria-label="Aprende y juega" aria-selected="false" aria-controls="view-learn" data-section-tab="learn" tabindex="-1"><span class="section-tab-icon" aria-hidden="true">✨</span>Aprender</button>
     </nav>
     <main id="top">
       <section class="section-view" id="view-explore" data-section-view="explore" role="tabpanel" aria-labelledby="tab-explore" tabindex="0">
