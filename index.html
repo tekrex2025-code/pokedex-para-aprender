@@ -396,6 +396,25 @@
     @media (max-width: 370px) { .filter-grid,.advanced { grid-template-columns: 1fr; }.pokemon-card { height: 188px; }.card-image { width: 100px; height: 100px; }.pokemon-name { font-size: 13px; } }
     @media (max-width: 620px) { .region-map-panel,.location-explorer-panel,.move-panel,.quiz-panel,.personality-panel { padding: 14px; } .region-map-head { display: grid; grid-template-columns: 1fr; } .region-map-select-wrap { width: 100%; } .region-map-frame { min-height: 170px; max-height: 62vh; padding: 8px; } .region-map-image { max-height: 58vh; } .location-tools,.move-filter-grid { grid-template-columns: 1fr 1fr; } .location-list,.location-encounters { grid-template-columns: repeat(2,minmax(0,1fr)); } .move-browser-layout { grid-template-columns: 1fr; } .move-results { grid-template-columns: repeat(2,minmax(0,1fr)); max-height: 250px; } .quiz-options,.personality-options { grid-template-columns: 1fr; } .personality-result-card { grid-template-columns: 95px minmax(0,1fr); gap: 8px; }.personality-result-art { width: 95px; height: 95px; }.personality-result-name { font-size: 18px; } }
     @media (max-width: 700px) { .progress-panel,.compare-panel { padding: 14px; }.tool-panel-head { flex-direction: column; }.progress-region-wrap { width: 100%; }.progress-stats { grid-template-columns: repeat(2,minmax(0,1fr)); }.compare-select-grid,.compare-summary,.compare-matchups { grid-template-columns: 1fr; } }
+    body { background: radial-gradient(ellipse at 8% 3%, rgba(211,224,255,.58), transparent 34%), radial-gradient(ellipse at 95% 18%, rgba(255,225,226,.45), transparent 31%), var(--canvas); }
+    .main-nav { position: sticky; top: 8px; z-index: 20; display: flex; gap: 7px; margin: 0 auto 18px; padding: 7px; overflow-x: auto; border: 1px solid rgba(224,230,241,.9); border-radius: 16px; background: rgba(255,255,255,.9); box-shadow: 0 8px 28px rgba(31,48,83,.09); backdrop-filter: blur(14px); scrollbar-width: none; }
+    .main-nav::-webkit-scrollbar { display: none; }
+    .section-tab { flex: 1 0 150px; display: flex; align-items: center; justify-content: center; gap: 9px; min-height: 48px; padding: 7px 14px; border: 1px solid transparent; border-radius: 11px; background: transparent; color: #64718a; font-size: 12px; font-weight: 850; transition: background .18s, color .18s, transform .18s, box-shadow .18s; }
+    .section-tab:hover { background: #f5f7fc; color: #303d58; transform: translateY(-1px); }
+    .section-tab[aria-selected="true"] { border-color: #344362; background: linear-gradient(135deg,#202b45,#3e527d); color: #fff; box-shadow: 0 5px 14px rgba(35,49,77,.2); }
+    .section-tab-icon { display: grid; width: 26px; height: 26px; place-items: center; border-radius: 8px; background: rgba(84,111,232,.09); font-size: 14px; }
+    .section-tab[aria-selected="true"] .section-tab-icon { background: rgba(255,255,255,.15); }
+    .section-view[hidden] { display: none !important; }
+    .section-intro { position: relative; display: flex; align-items: center; justify-content: space-between; gap: 18px; margin: 0 0 18px; padding: 22px 25px; overflow: hidden; border: 1px solid rgba(224,230,241,.9); border-radius: 18px; background: linear-gradient(112deg,rgba(255,255,255,.98),rgba(248,250,255,.94)); box-shadow: 0 9px 26px rgba(31,48,83,.055); }
+    .section-intro::after { content: ""; position: absolute; width: 150px; height: 150px; right: 34px; top: -82px; border: 1px solid rgba(84,111,232,.13); border-radius: 50%; box-shadow: 0 0 0 22px rgba(84,111,232,.025),0 0 0 44px rgba(84,111,232,.02); pointer-events: none; }
+    .section-intro-copy { position: relative; z-index: 1; max-width: 760px; }
+    .section-kicker { color: var(--red-dark); font-size: 9px; font-weight: 900; letter-spacing: .14em; text-transform: uppercase; }
+    .section-intro h2 { margin: 6px 0 5px; color: #202c46; font-size: clamp(22px,3.2vw,30px); letter-spacing: -.045em; }
+    .section-intro p { margin: 0; color: #748098; font-size: 12px; line-height: 1.6; }
+    .section-intro-art { position: relative; z-index: 1; flex: 0 0 auto; display: grid; width: 58px; height: 58px; place-items: center; border: 1px solid #e6eafa; border-radius: 17px; background: linear-gradient(145deg,#fff,#f0f3ff); color: #536de0; font-size: 28px; box-shadow: 0 7px 18px rgba(62,82,125,.09); }
+    .view-subtitle { margin: 20px 3px 10px; color: #36435e; font-size: 15px; font-weight: 900; letter-spacing: -.02em; }
+    .view-help { margin: -5px 3px 15px; color: var(--muted); font-size: 11px; line-height: 1.55; }
+    @media (max-width: 620px) { .main-nav { top: 4px; margin-bottom: 12px; padding: 5px; gap: 4px; border-radius: 13px; }.section-tab { flex: 1 0 112px; min-height: 43px; gap: 6px; padding: 6px 9px; font-size: 11px; }.section-tab-icon { width: 23px; height: 23px; font-size: 12px; }.section-intro { padding: 17px; border-radius: 15px; }.section-intro-art { width: 48px; height: 48px; border-radius: 14px; font-size: 23px; }.view-subtitle { margin-top: 16px; } }
   </style>
 </head>
 <body>
@@ -404,7 +423,14 @@
       <a class="brand" href="#top" aria-label="Pokédex Kanto a Paldea, inicio"><span class="brand-mark" aria-hidden="true"></span><span class="brand-name">dex<span>mon</span></span></a>
       <div class="top-meta"><span class="tag">POKÉDEX DIGITAL</span><button class="chart-trigger" id="open-type-chart" type="button">⚔ Tabla de tipos</button><span class="region-chip"><i class="region-dot"></i> Gen. I—IX</span></div>
     </header>
+    <nav class="main-nav" id="main-nav" role="tablist" aria-label="Apartados principales">
+      <button class="section-tab" id="tab-explore" type="button" role="tab" aria-selected="true" aria-controls="view-explore" data-section-tab="explore"><span class="section-tab-icon" aria-hidden="true">🔎</span>Pokédex</button>
+      <button class="section-tab" id="tab-team" type="button" role="tab" aria-selected="false" aria-controls="view-team" data-section-tab="team" tabindex="-1"><span class="section-tab-icon" aria-hidden="true">⚔️</span>Mi equipo</button>
+      <button class="section-tab" id="tab-regions" type="button" role="tab" aria-selected="false" aria-controls="view-regions" data-section-tab="regions" tabindex="-1"><span class="section-tab-icon" aria-hidden="true">🗺️</span>Regiones</button>
+      <button class="section-tab" id="tab-learn" type="button" role="tab" aria-selected="false" aria-controls="view-learn" data-section-tab="learn" tabindex="-1"><span class="section-tab-icon" aria-hidden="true">✨</span>Aprende y juega</button>
+    </nav>
     <main id="top">
+      <section class="section-view" id="view-explore" data-section-view="explore" role="tabpanel" aria-labelledby="tab-explore" tabindex="0">
       <section class="hero" aria-labelledby="main-title">
         <div class="hero-content">
           <div class="eyebrow">Pokédex nacional · #001—#1025 · Generaciones I—IX</div>
@@ -438,7 +464,11 @@
         <div class="progress-track" aria-label="Progreso de captura"><div class="progress-fill" id="progress-fill"></div></div>
         <p class="progress-footnote">Tu avance se guarda solo en este navegador y dispositivo.</p>
       </section>
+      </section>
 
+      <section class="section-view" id="view-team" data-section-view="team" role="tabpanel" aria-labelledby="tab-team" tabindex="0" hidden>
+        <div class="section-intro"><div class="section-intro-copy"><div class="section-kicker">Planea tu estrategia</div><h2>Mi equipo Pokémon</h2><p>Arma un equipo, compara especies o formas y revisa qué tipos cubres y cuáles podrías reforzar.</p></div><div class="section-intro-art" aria-hidden="true">⚔️</div></div>
+        <h3 class="view-subtitle">Comparar Pokémon</h3><p class="view-help">Revisa sus estadísticas, tipos, habilidades y enfrentamientos antes de elegir.</p>
       <section class="compare-panel" aria-labelledby="compare-title">
         <div class="tool-panel-head"><div><h2 class="tool-panel-title" id="compare-title">Compara Pokémon</h2><p class="tool-panel-note">Elige dos especies y, si tienen, una forma. Compara tipos, habilidades, debilidades y estadísticas base.</p></div></div>
         <div class="compare-select-grid">
@@ -457,7 +487,10 @@
         <div class="team-status" id="team-status" role="status"></div>
         <section class="team-assistant" id="team-assistant" hidden aria-live="polite"></section>
       </section>
+      </section>
 
+      <section class="section-view" id="view-regions" data-section-view="regions" role="tabpanel" aria-labelledby="tab-regions" tabindex="0" hidden>
+        <div class="section-intro"><div class="section-intro-copy"><div class="section-kicker">Rutas y descubrimientos</div><h2>Explora las regiones</h2><p>Consulta mapas y recorre lugares donde puedes encontrar Pokémon en cada aventura.</p></div><div class="section-intro-art" aria-hidden="true">🗺️</div></div>
       <section class="region-map-panel" aria-labelledby="region-maps-title">
         <div class="region-map-head">
           <div class="region-map-copy"><h2 class="region-map-title" id="region-maps-title">Mapas de las regiones</h2><p class="region-map-subtitle">Explora la geografía de las regiones principales y de Hisui, la antigua Sinnoh.</p></div>
@@ -481,7 +514,11 @@
         <div class="location-list" id="location-list" aria-live="polite"></div>
         <div class="location-detail" id="location-detail" hidden aria-live="polite"></div>
       </section>
+      </section>
 
+      <section class="section-view" id="view-learn" data-section-view="learn" role="tabpanel" aria-labelledby="tab-learn" tabindex="0" hidden>
+        <div class="section-intro"><div class="section-intro-copy"><div class="section-kicker">Conoce y pon a prueba lo que sabes</div><h2>Aprende y juega</h2><p>Busca movimientos y practica con retos para descubrir más sobre el mundo Pokémon.</p></div><div class="section-intro-art" aria-hidden="true">✨</div></div>
+        <h3 class="view-subtitle">Movimientos</h3><p class="view-help">Encuentra ataques por nombre, tipo o generación y consulta cómo funcionan.</p>
       <section class="move-panel" aria-labelledby="move-browser-title">
         <div class="tool-panel-head"><div><h2 class="tool-panel-title" id="move-browser-title">Buscador de movimientos</h2><p class="tool-panel-note">Filtra por nombre, tipo y generación. Selecciona un movimiento para ver potencia, precisión, PP, categoría y efecto.</p></div></div>
         <div class="move-filter-grid">
@@ -513,7 +550,9 @@
         <section class="personality-result" id="personality-result" hidden aria-live="polite"></section>
         <p class="personality-result-foot">Es un resultado recreativo basado en tus respuestas, no una clasificación oficial de Pokémon.</p>
       </section>
+      </section>
 
+      <section class="section-view" data-section-view="explore" aria-labelledby="tab-explore">
       <section class="filters" aria-label="Filtros de la Pokédex">
         <div class="filter-head">
           <div><div class="filter-title">Encuentra tu Pokémon</div><div class="filter-subtitle">Combina los filtros para afinar la búsqueda.</div></div>
@@ -541,6 +580,7 @@
       <section class="grid" id="grid" aria-label="Lista de Pokémon"></section>
       <div class="empty" id="empty"><strong>No encontramos Pokémon con esos filtros</strong>Prueba con otro nombre, tipo o requisito de evolución.</div>
       <nav class="pagination" id="pagination" aria-label="Páginas de Pokémon"><button class="page-btn" id="prev-page" type="button">← Anterior</button><span class="page-status" id="page-status">Página 1</span><button class="page-btn" id="next-page" type="button">Siguiente →</button></nav>
+      </section>
     </main>
     <footer><span>Datos de especies, evoluciones y tipos con PokéAPI.</span><a href="https://pokeapi.co/docs/v2" target="_blank" rel="noreferrer">Cómo se obtienen los datos ↗</a></footer>
   </div>
@@ -1891,6 +1931,16 @@
         }
       }
       function closeModal() { $('modal-backdrop').classList.remove('show'); document.body.style.overflow = ''; }
+      function activateMainSection(section, focusTab=false, scrollToTop=true) {
+        document.querySelectorAll('[data-section-view]').forEach(panel=>{panel.hidden=panel.dataset.sectionView!==section;});
+        document.querySelectorAll('[data-section-tab]').forEach(tab=>{
+          const active=tab.dataset.sectionTab===section;
+          tab.setAttribute('aria-selected',String(active));
+          tab.tabIndex=active?0:-1;
+          if(active&&focusTab) tab.focus();
+        });
+        if(scrollToTop) window.scrollTo({top:0,behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'});
+      }
       function updateFavoriteButton() {
         const button = $('favorites-btn');
         button.setAttribute('aria-pressed', String(state.favoritesOnly));
@@ -1925,6 +1975,23 @@
         const savedProfile=safeStorage.get('dexkanto:progress-profile'); state.progressProfile=PROGRESS_PROFILES.includes(savedProfile)?savedProfile:'all'; $('progress-region').value=state.progressProfile;
         $('move-type').innerHTML += TYPE_ORDER.map(t=>'<option value="'+t+'">'+TYPE_NAMES[t]+'</option>').join('');
         $('type').innerHTML += TYPE_ORDER.map(t=>`<option value="${t}">${TYPE_NAMES[t]}</option>`).join('');
+        const sectionNav=$('main-nav');
+        sectionNav.addEventListener('click',e=>{
+          const tab=e.target.closest('[data-section-tab]');
+          if(tab) activateMainSection(tab.dataset.sectionTab);
+        });
+        sectionNav.addEventListener('keydown',e=>{
+          const tabs=[...sectionNav.querySelectorAll('[data-section-tab]')], current=tabs.indexOf(e.target.closest('[data-section-tab]'));
+          if(current<0) return;
+          let next=current;
+          if(e.key==='ArrowRight') next=(current+1)%tabs.length;
+          else if(e.key==='ArrowLeft') next=(current-1+tabs.length)%tabs.length;
+          else if(e.key==='Home') next=0;
+          else if(e.key==='End') next=tabs.length-1;
+          else return;
+          e.preventDefault(); activateMainSection(tabs[next].dataset.sectionTab,true);
+        });
+        activateMainSection('explore',false,false);
         updateFavoriteButton();
         renderTeam();
         if(sharedTeam!==null) teamStatus('Equipo recibido desde un enlace compartido. Puedes analizarlo o editarlo.');
